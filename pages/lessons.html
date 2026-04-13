@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Материалы для уроков — About the UK</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ── Lesson Tabs ── */
+    .lesson-tabs { display:flex; gap:8px; margin-bottom:32px; flex-wrap:wrap; }
+    .lesson-tab {
+      padding:10px 22px; border-radius:24px; font-family:var(--font-h); font-weight:700;
+      border:2px solid var(--border); background:var(--white); cursor:pointer;
+      display:flex; align-items:center; gap:8px; transition:all 0.2s;
+    }
+    .lesson-tab:hover   { border-color:var(--blue); }
+    .lesson-tab.active  { background:var(--blue); color:#fff; border-color:var(--blue); }
+
+    /* ── Lesson panels ── */
+    .lesson-panel { display:none; animation:fadeInUp 0.3s ease; }
+    .lesson-panel.active { display:block; }
+
+    /* ── Lesson card ── */
+    .lesson-card {
+      background:var(--white); border-radius:var(--radius-lg);
+      box-shadow:var(--shadow); margin-bottom:28px; overflow:hidden;
+    }
+    .lesson-header {
+      padding:20px 28px; display:flex; align-items:center; gap:16px;
+      background:linear-gradient(90deg, var(--blue), var(--blue-dark));
+      color:#fff; cursor:pointer;
+    }
+    .lesson-header:hover { filter:brightness(1.08); }
+    .lesson-num { font-size:1.8rem; font-weight:900; opacity:0.5; }
+    .lesson-info { flex:1; }
+    .lesson-title { font-size:1.1rem; font-weight:700; margin-bottom:4px; }
+    .lesson-meta  { font-size:0.8rem; color:rgba(255,255,255,0.7); display:flex; gap:16px; flex-wrap:wrap; }
+    .lesson-toggle { font-size:1rem; opacity:0.8; transition:transform 0.3s; }
+    .lesson-header.open .lesson-toggle { transform:rotate(180deg); }
+
+    .lesson-body { padding:28px; display:none; }
+    .lesson-body.open { display:block; animation:fadeInUp 0.25s ease; }
+
+    /* lesson body sections */
+    .lesson-section { margin-bottom:28px; }
+    .lesson-section h4 { font-size:1rem; margin-bottom:12px; color:var(--blue); padding-bottom:6px; border-bottom:2px solid var(--blue-light); }
+
+    .objectives-list, .vocab-list, .activity-list { padding-left:20px; }
+    .objectives-list li { margin-bottom:8px; font-size:0.9rem; list-style:disc; }
+    .vocab-list li { margin-bottom:6px; font-size:0.9rem; list-style:none; padding-left:0; }
+    .vocab-list li::before { content:"→ "; color:var(--blue); font-weight:700; }
+
+    .activity-card {
+      background:var(--bg); border-radius:var(--radius); padding:16px 20px; margin-bottom:12px;
+      border-left:3px solid var(--gold);
+    }
+    .activity-card strong { display:block; margin-bottom:6px; }
+    .activity-card p { font-size:0.875rem; color:var(--text-muted); margin:0; line-height:1.6; }
+
+    .exercise-box {
+      background:var(--bg-alt); border-radius:var(--radius); padding:16px 20px; margin-bottom:12px;
+    }
+    .exercise-box .ex-title { font-family:var(--font-h); font-weight:700; margin-bottom:10px; }
+    .exercise-box ol { padding-left:20px; font-size:0.9rem; }
+    .exercise-box ol li { margin-bottom:8px; line-height:1.6; }
+
+    .answer-key {
+      background:var(--green-bg); border-radius:var(--radius); padding:14px 18px;
+      font-size:0.875rem; margin-top:12px; display:none;
+    }
+    .answer-key.visible { display:block; }
+
+    /* ── Print styles ── */
+    @media print {
+      .nav, footer, .lesson-tabs, .no-print { display:none !important; }
+      .lesson-body { display:block !important; }
+      .lesson-card { box-shadow:none; border:1px solid #ddd; }
+      body { padding-top:0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav no-print">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="../index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link" href="map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link" href="countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link" href="quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link" href="flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link" href="wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link active" href="lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Материалы для уроков</span>
+      </div>
+      <h1><i class="fa fa-book-open"></i> Lesson Materials</h1>
+      <p>Планы уроков и упражнения для 5–11 класса &nbsp;•&nbsp; Можно распечатать</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div style="padding:40px 0">
+
+      <div class="flex-between mb-24 no-print" style="flex-wrap:wrap;gap:12px">
+        <div>
+          <h2 style="margin-bottom:6px">Учебные материалы</h2>
+          <p style="color:var(--text-muted)">Нажми на урок, чтобы открыть. Нажми «Распечатать» для печати.</p>
+        </div>
+        <button class="btn btn-outline" onclick="window.print()">
+          <i class="fa fa-print"></i> Распечатать все
+        </button>
+      </div>
+
+      <!-- Grade Tabs -->
+      <div class="lesson-tabs no-print">
+        <button class="lesson-tab active" onclick="showGrade('5-6')"><i class="fa fa-graduation-cap"></i> 5–6 класс</button>
+        <button class="lesson-tab" onclick="showGrade('7-8')"><i class="fa fa-graduation-cap"></i> 7–8 класс</button>
+        <button class="lesson-tab" onclick="showGrade('9')"><i class="fa fa-graduation-cap"></i> 9 класс</button>
+        <button class="lesson-tab" onclick="showGrade('10-11')"><i class="fa fa-graduation-cap"></i> 10–11 класс</button>
+      </div>
+
+      <!-- ════ 5-6 CLASS ════ -->
+      <div class="lesson-panel active" id="panel-5-6">
+        <div style="margin-bottom:20px">
+          <span class="badge badge-blue">5–6 класс · Beginner / Elementary</span>
+        </div>
+
+        <!-- Lesson 1 -->
+        <div class="lesson-card">
+          <div class="lesson-header" onclick="toggleLesson(this)">
+            <div class="lesson-num">01</div>
+            <div class="lesson-info">
+              <div class="lesson-title">The United Kingdom — An Introduction</div>
+              <div class="lesson-meta">
+                <span><i class="fa fa-clock"></i> 45 мин</span>
+                <span><i class="fa fa-users"></i> 5–6 класс</span>
+                <span><i class="fa fa-tag"></i> Geography</span>
+              </div>
+            </div>
+            <i class="fa fa-chevron-down lesson-toggle"></i>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-section">
+              <h4>🎯 Learning Objectives</h4>
+              <ul class="objectives-list">
+                <li>Students can name and locate the four countries of the UK on a map.</li>
+                <li>Students know the capital cities of all four nations.</li>
+                <li>Students can describe the UK flag (Union Jack) and what it represents.</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>📖 Key Vocabulary</h4>
+              <ul class="vocab-list">
+                <li><strong>United Kingdom</strong> — страна, состоящая из четырёх наций</li>
+                <li><strong>Capital city</strong> — главный город страны</li>
+                <li><strong>Flag / Union Jack</strong> — флаг</li>
+                <li><strong>Nation</strong> — нация, страна</li>
+                <li><strong>Island</strong> — остров</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>📋 Lesson Plan</h4>
+              <div class="activity-card">
+                <strong>Warm-up (5 min)</strong>
+                <p>Show the Union Jack flag. Ask: "What country does this flag belong to?" Elicit student knowledge.</p>
+              </div>
+              <div class="activity-card">
+                <strong>Presentation (15 min)</strong>
+                <p>Use the interactive map to show the four nations. Teach: "England is in the south. Scotland is in the north. Wales is in the west. Northern Ireland is on a separate island." Drill the names and capitals chorally.</p>
+              </div>
+              <div class="activity-card">
+                <strong>Practice (15 min)</strong>
+                <p>Students draw and label a simple UK map. Write the country names, capitals, and one national symbol for each (lion, unicorn, dragon, shamrock).</p>
+              </div>
+              <div class="activity-card">
+                <strong>Production (10 min)</strong>
+                <p>Pair activity: Student A asks "What is the capital of Scotland?" Student B answers "Edinburgh." Rotate through all four nations.</p>
+              </div>
+            </div>
+            <div class="lesson-section">
+              <h4>✏️ Exercises</h4>
+              <div class="exercise-box">
+                <div class="ex-title">Exercise 1: Match the capitals</div>
+                <ol>
+                  <li>England → ___________</li>
+                  <li>Scotland → ___________</li>
+                  <li>Wales → ___________</li>
+                  <li>Northern Ireland → ___________</li>
+                </ol>
+                <button class="btn btn-ghost btn-sm mt-8" onclick="this.nextElementSibling.classList.toggle('visible')">Show answers</button>
+                <div class="answer-key">1. London &nbsp; 2. Edinburgh &nbsp; 3. Cardiff &nbsp; 4. Belfast</div>
+              </div>
+              <div class="exercise-box">
+                <div class="ex-title">Exercise 2: True or False?</div>
+                <ol>
+                  <li>The UK has five countries. ( )</li>
+                  <li>London is the capital of Scotland. ( )</li>
+                  <li>Wales has a dragon on its flag. ( )</li>
+                  <li>Northern Ireland shares an island with Ireland. ( )</li>
+                </ol>
+                <button class="btn btn-ghost btn-sm mt-8" onclick="this.nextElementSibling.classList.toggle('visible')">Show answers</button>
+                <div class="answer-key">1. False (four) &nbsp; 2. False (London = capital of England) &nbsp; 3. True &nbsp; 4. True</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson-card">
+          <div class="lesson-header" onclick="toggleLesson(this)">
+            <div class="lesson-num">02</div>
+            <div class="lesson-info">
+              <div class="lesson-title">British Culture — Tea, Traditions &amp; Symbols</div>
+              <div class="lesson-meta">
+                <span><i class="fa fa-clock"></i> 45 мин</span>
+                <span><i class="fa fa-users"></i> 5–6 класс</span>
+                <span><i class="fa fa-tag"></i> Culture</span>
+              </div>
+            </div>
+            <i class="fa fa-chevron-down lesson-toggle"></i>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-section">
+              <h4>🎯 Learning Objectives</h4>
+              <ul class="objectives-list">
+                <li>Students can name at least 5 British cultural traditions.</li>
+                <li>Students understand the difference between British and American English vocabulary.</li>
+                <li>Students can describe a British tradition in 2–3 sentences.</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>📖 Key Vocabulary</h4>
+              <ul class="vocab-list">
+                <li><strong>Afternoon tea</strong> — послеполуденный чай с угощениями</li>
+                <li><strong>Bonfire Night</strong> — 5 ноября, ночь фейерверков</li>
+                <li><strong>Double-decker bus</strong> — двухэтажный автобус</li>
+                <li><strong>Pub</strong> — паб (public house)</li>
+                <li><strong>Queuing</strong> — стояние в очереди</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>✏️ Exercises</h4>
+              <div class="exercise-box">
+                <div class="ex-title">Exercise 1: Complete the sentences</div>
+                <ol>
+                  <li>British people drink a lot of ___________ (tea / coffee).</li>
+                  <li>London's famous buses are ___________-coloured.</li>
+                  <li>___________ Night is celebrated on November 5th.</li>
+                  <li>A "pub" is short for "public ___________".</li>
+                </ol>
+                <button class="btn btn-ghost btn-sm mt-8" onclick="this.nextElementSibling.classList.toggle('visible')">Show answers</button>
+                <div class="answer-key">1. tea &nbsp; 2. red &nbsp; 3. Bonfire/Guy Fawkes &nbsp; 4. house</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ 7-8 CLASS ════ -->
+      <div class="lesson-panel" id="panel-7-8">
+        <div style="margin-bottom:20px">
+          <span class="badge badge-gold">7–8 класс · Pre-Intermediate</span>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-header" onclick="toggleLesson(this)">
+            <div class="lesson-num">01</div>
+            <div class="lesson-info">
+              <div class="lesson-title">British vs American English — Key Differences</div>
+              <div class="lesson-meta">
+                <span><i class="fa fa-clock"></i> 45 мин</span>
+                <span><i class="fa fa-users"></i> 7–8 класс</span>
+                <span><i class="fa fa-tag"></i> Language</span>
+              </div>
+            </div>
+            <i class="fa fa-chevron-down lesson-toggle"></i>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-section">
+              <h4>🎯 Learning Objectives</h4>
+              <ul class="objectives-list">
+                <li>Students can identify 10+ differences between British and American English vocabulary.</li>
+                <li>Students understand that both varieties are correct, just different.</li>
+                <li>Students can use British English vocabulary in sentences.</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>📖 British vs American — Key Pairs</h4>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;font-size:0.875rem;background:var(--bg);border-radius:var(--radius);overflow:hidden">
+                <div style="background:var(--blue);color:#fff;padding:10px 16px;font-weight:700">British English 🇬🇧</div>
+                <div style="background:var(--red);color:#fff;padding:10px 16px;font-weight:700">American English 🇺🇸</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border)">Lift</div><div style="padding:8px 16px;border-bottom:1px solid var(--border)">Elevator</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)">Flat</div><div style="padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)">Apartment</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border)">Chips</div><div style="padding:8px 16px;border-bottom:1px solid var(--border)">French fries</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)">Crisps</div><div style="padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)">Chips / potato chips</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border)">Boot (of a car)</div><div style="padding:8px 16px;border-bottom:1px solid var(--border)">Trunk</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)">Biscuit</div><div style="padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)">Cookie</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border)">Fortnight</div><div style="padding:8px 16px;border-bottom:1px solid var(--border)">Two weeks</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)">Mobile</div><div style="padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg-alt)">Cell phone</div>
+                <div style="padding:8px 16px;border-bottom:1px solid var(--border)">Rubbish bin</div><div style="padding:8px 16px;border-bottom:1px solid var(--border)">Trash can / garbage can</div>
+                <div style="padding:8px 16px;background:var(--bg-alt)">Chemist</div><div style="padding:8px 16px;background:var(--bg-alt)">Pharmacy / drugstore</div>
+              </div>
+            </div>
+            <div class="lesson-section">
+              <h4>✏️ Exercises</h4>
+              <div class="exercise-box">
+                <div class="ex-title">Exercise 1: Translate to British English</div>
+                <ol>
+                  <li>I need to take the elevator to the 5th floor. → ___________</li>
+                  <li>He lives in a small apartment in the city. → ___________</li>
+                  <li>Can I have French fries with my burger? → ___________</li>
+                  <li>She's been gone for two weeks. → ___________</li>
+                </ol>
+                <button class="btn btn-ghost btn-sm mt-8" onclick="this.nextElementSibling.classList.toggle('visible')">Show answers</button>
+                <div class="answer-key">1. lift &nbsp; 2. flat &nbsp; 3. chips &nbsp; 4. a fortnight</div>
+              </div>
+              <div class="exercise-box">
+                <div class="ex-title">Exercise 2: Fill in the gaps with British English words</div>
+                <ol>
+                  <li>Put the shopping bags in the ___________ of the car. (trunk → ___)</li>
+                  <li>Would you like a ___________ with your tea? (cookie → ___)</li>
+                  <li>My ___________ has run out of battery. (cell phone → ___)</li>
+                  <li>Throw that in the ___________ bin, please. (trash → ___)</li>
+                </ol>
+                <button class="btn btn-ghost btn-sm mt-8" onclick="this.nextElementSibling.classList.toggle('visible')">Show answers</button>
+                <div class="answer-key">1. boot &nbsp; 2. biscuit &nbsp; 3. mobile &nbsp; 4. rubbish</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-header" onclick="toggleLesson(this)">
+            <div class="lesson-num">02</div>
+            <div class="lesson-info">
+              <div class="lesson-title">UK Geography — Rivers, Mountains &amp; Landscapes</div>
+              <div class="lesson-meta">
+                <span><i class="fa fa-clock"></i> 45 мин</span>
+                <span><i class="fa fa-users"></i> 7–8 класс</span>
+                <span><i class="fa fa-tag"></i> Geography</span>
+              </div>
+            </div>
+            <i class="fa fa-chevron-down lesson-toggle"></i>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-section">
+              <h4>🎯 Learning Objectives</h4>
+              <ul class="objectives-list">
+                <li>Students can name the main rivers, mountains, and geographic features of the UK.</li>
+                <li>Students can describe a geographic feature using appropriate vocabulary.</li>
+                <li>Students understand the difference between a loch, lake, river, and mountain.</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>📖 Key Vocabulary</h4>
+              <ul class="vocab-list">
+                <li><strong>River Thames</strong> — flows through London to the North Sea (346 km)</li>
+                <li><strong>River Severn</strong> — the UK's longest river (354 km)</li>
+                <li><strong>Ben Nevis</strong> — highest mountain in the UK (1,345m, Scotland)</li>
+                <li><strong>Scafell Pike</strong> — highest mountain in England (978m)</li>
+                <li><strong>Snowdon / Yr Wyddfa</strong> — highest mountain in Wales (1,085m)</li>
+                <li><strong>Loch</strong> — Scottish word for lake</li>
+                <li><strong>Highland</strong> — высокогорье</li>
+                <li><strong>Peninsula</strong> — полуостров (e.g. Cornwall)</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>✏️ Exercises</h4>
+              <div class="exercise-box">
+                <div class="ex-title">Exercise: Complete with the correct word</div>
+                <ol>
+                  <li>The ___________ is the longest river in England. (Thames / Severn)</li>
+                  <li>___________ is the highest mountain in the UK at 1,345 metres.</li>
+                  <li>In Scotland, a lake is called a ___________.</li>
+                  <li>Cornwall is a ___________ in the south-west of England.</li>
+                  <li>The English Channel separates England from ___________.</li>
+                </ol>
+                <button class="btn btn-ghost btn-sm mt-8" onclick="this.nextElementSibling.classList.toggle('visible')">Show answers</button>
+                <div class="answer-key">1. Severn (longest UK) or Thames (longest in England) &nbsp; 2. Ben Nevis &nbsp; 3. loch &nbsp; 4. peninsula &nbsp; 5. France</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ 9 CLASS ════ -->
+      <div class="lesson-panel" id="panel-9">
+        <div style="margin-bottom:20px">
+          <span class="badge" style="background:#EDE9FE;color:#7C3AED">9 класс · Intermediate</span>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-header" onclick="toggleLesson(this)">
+            <div class="lesson-num">01</div>
+            <div class="lesson-info">
+              <div class="lesson-title">British History — Key Events &amp; People</div>
+              <div class="lesson-meta">
+                <span><i class="fa fa-clock"></i> 45 мин</span>
+                <span><i class="fa fa-users"></i> 9 класс</span>
+                <span><i class="fa fa-tag"></i> History</span>
+              </div>
+            </div>
+            <i class="fa fa-chevron-down lesson-toggle"></i>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-section">
+              <h4>🎯 Learning Objectives</h4>
+              <ul class="objectives-list">
+                <li>Students can place key events in British history on a timeline.</li>
+                <li>Students can describe 3 significant events in British history in English.</li>
+                <li>Students understand the significance of the Magna Carta for democracy.</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>📜 Key Historical Events Timeline</h4>
+              <div style="display:grid;gap:12px">
+                <div style="display:flex;gap:16px;background:var(--bg);border-radius:8px;padding:12px 16px">
+                  <div style="min-width:50px;font-family:var(--font-h);font-weight:900;color:var(--blue)">1066</div>
+                  <div><strong>Norman Conquest</strong> — William the Conqueror invades England. Old English + French → Modern English begins.</div>
+                </div>
+                <div style="display:flex;gap:16px;background:var(--bg-alt);border-radius:8px;padding:12px 16px">
+                  <div style="min-width:50px;font-family:var(--font-h);font-weight:900;color:var(--blue)">1215</div>
+                  <div><strong>Magna Carta</strong> — The first legal document limiting royal power. Foundation of constitutional democracy.</div>
+                </div>
+                <div style="display:flex;gap:16px;background:var(--bg);border-radius:8px;padding:12px 16px">
+                  <div style="min-width:50px;font-family:var(--font-h);font-weight:900;color:var(--blue)">1564</div>
+                  <div><strong>Shakespeare born</strong> — William Shakespeare, the world's greatest playwright, born in Stratford-upon-Avon.</div>
+                </div>
+                <div style="display:flex;gap:16px;background:var(--bg-alt);border-radius:8px;padding:12px 16px">
+                  <div style="min-width:50px;font-family:var(--font-h);font-weight:900;color:var(--blue)">1707</div>
+                  <div><strong>Act of Union</strong> — England and Scotland unite to form the Kingdom of Great Britain.</div>
+                </div>
+                <div style="display:flex;gap:16px;background:var(--bg);border-radius:8px;padding:12px 16px">
+                  <div style="min-width:50px;font-family:var(--font-h);font-weight:900;color:var(--blue)">1760s</div>
+                  <div><strong>Industrial Revolution</strong> — Britain leads the world into the age of machines, steam, and industry.</div>
+                </div>
+                <div style="display:flex;gap:16px;background:var(--bg-alt);border-radius:8px;padding:12px 16px">
+                  <div style="min-width:50px;font-family:var(--font-h);font-weight:900;color:var(--blue)">1939–45</div>
+                  <div><strong>World War II</strong> — Britain withstands German bombing (the Blitz) under PM Winston Churchill.</div>
+                </div>
+                <div style="display:flex;gap:16px;background:var(--bg);border-radius:8px;padding:12px 16px">
+                  <div style="min-width:50px;font-family:var(--font-h);font-weight:900;color:var(--blue)">1948</div>
+                  <div><strong>NHS Founded</strong> — National Health Service created. Free healthcare for all UK citizens.</div>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-section">
+              <h4>✏️ Discussion Questions</h4>
+              <ol style="padding-left:20px;font-size:0.9rem;display:grid;gap:10px">
+                <li>Why was the Magna Carta (1215) important? How did it change the relationship between kings and their people?</li>
+                <li>What was the Industrial Revolution, and why did it begin in Britain?</li>
+                <li>What was "the Blitz"? How did the British people respond to the German bombing?</li>
+                <li>What is the NHS, and why is it considered important to British identity?</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ════ 10-11 CLASS ════ -->
+      <div class="lesson-panel" id="panel-10-11">
+        <div style="margin-bottom:20px">
+          <span class="badge badge-red">10–11 класс · Upper-Intermediate / Advanced</span>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-header" onclick="toggleLesson(this)">
+            <div class="lesson-num">01</div>
+            <div class="lesson-info">
+              <div class="lesson-title">British Identity — What does it mean to be British?</div>
+              <div class="lesson-meta">
+                <span><i class="fa fa-clock"></i> 45 мин</span>
+                <span><i class="fa fa-users"></i> 10–11 класс</span>
+                <span><i class="fa fa-tag"></i> Culture &amp; Identity</span>
+              </div>
+            </div>
+            <i class="fa fa-chevron-down lesson-toggle"></i>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-section">
+              <h4>🎯 Learning Objectives</h4>
+              <ul class="objectives-list">
+                <li>Students can discuss the concept of national identity in English.</li>
+                <li>Students can compare British and Russian cultural values.</li>
+                <li>Students can write a short essay (150–200 words) about British cultural identity.</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>📖 Reading Text — British Identity</h4>
+              <div style="background:var(--white);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);font-size:0.9rem;line-height:1.8;border-left:4px solid var(--blue)">
+                <p>What makes someone British? This is a question that has no simple answer. Britain is a country of contrasts and contradictions. On one hand, there are ancient traditions: the monarchy, parliamentary democracy, afternoon tea, and cricket. On the other hand, Britain is one of the most diverse and multicultural countries in the world.</p>
+                <p>British people are often described as reserved and polite — they queue patiently, apologise constantly, and talk about the weather. Yet they also produced punk rock, the Sex Pistols, and some of the world's most provocative artists and writers.</p>
+                <p>Perhaps what truly defines British identity is a set of shared values: a belief in fair play, freedom of speech, tolerance, and a sense of humour — particularly the ability to laugh at oneself. Whether through Shakespeare, the Beatles, Harry Potter, or the NHS, Britain has given the world ideas, art, and institutions that continue to shape global culture.</p>
+              </div>
+            </div>
+            <div class="lesson-section">
+              <h4>✏️ Reading Comprehension</h4>
+              <div class="exercise-box">
+                <div class="ex-title">Answer the questions in English:</div>
+                <ol>
+                  <li>According to the text, what are two traditional aspects of British culture?</li>
+                  <li>How are British people described in terms of social behaviour?</li>
+                  <li>What values does the text say are important to British identity?</li>
+                  <li>What examples of British cultural contributions to the world are given?</li>
+                  <li>Do you think Russia has similar "defining values"? What are they?</li>
+                </ol>
+              </div>
+            </div>
+            <div class="lesson-section">
+              <h4>✍️ Writing Task</h4>
+              <div style="background:var(--bg-alt);border-radius:var(--radius);padding:16px 20px">
+                <p style="font-size:0.9rem;margin-bottom:12px"><strong>Write 150–200 words</strong> responding to the question: <em>"What are the most interesting or surprising aspects of British culture?"</em></p>
+                <p style="font-size:0.875rem;color:var(--text-muted)">Use vocabulary from this lesson. Include: at least one comparison with Russian culture, one specific example of a British tradition or cultural product, and your personal opinion.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-header" onclick="toggleLesson(this)">
+            <div class="lesson-num">02</div>
+            <div class="lesson-info">
+              <div class="lesson-title">The British Political System — Parliament &amp; Democracy</div>
+              <div class="lesson-meta">
+                <span><i class="fa fa-clock"></i> 45 мин</span>
+                <span><i class="fa fa-users"></i> 10–11 класс</span>
+                <span><i class="fa fa-tag"></i> Politics &amp; Society</span>
+              </div>
+            </div>
+            <i class="fa fa-chevron-down lesson-toggle"></i>
+          </div>
+          <div class="lesson-body">
+            <div class="lesson-section">
+              <h4>🎯 Learning Objectives</h4>
+              <ul class="objectives-list">
+                <li>Students can explain the structure of the UK political system.</li>
+                <li>Students can describe the roles of the Monarch, Parliament, and Prime Minister.</li>
+                <li>Students can compare the UK and Russian systems of government.</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>📖 Key Vocabulary</h4>
+              <ul class="vocab-list">
+                <li><strong>Constitutional monarchy</strong> — конституционная монархия (монарх — символ, реальная власть у парламента)</li>
+                <li><strong>Parliament</strong> — парламент (House of Commons + House of Lords)</li>
+                <li><strong>Prime Minister</strong> — премьер-министр (глава правительства)</li>
+                <li><strong>General Election</strong> — всеобщие выборы (проводятся каждые 5 лет)</li>
+                <li><strong>Devolution</strong> — передача части полномочий Шотландии, Уэльсу, Северной Ирландии</li>
+              </ul>
+            </div>
+            <div class="lesson-section">
+              <h4>✏️ Discussion</h4>
+              <ol style="padding-left:20px;font-size:0.9rem;display:grid;gap:10px">
+                <li>What is the difference between a constitutional monarchy and an absolute monarchy?</li>
+                <li>Why is Britain called "the Mother of Parliaments"?</li>
+                <li>What does "devolution" mean? Why might Scotland and Wales want their own parliaments?</li>
+                <li>Compare the UK system (Prime Minister) and the Russian system (President). What are the key differences?</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer no-print">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+
+  <script src="../js/progress.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    function showGrade(grade) {
+      document.querySelectorAll('.lesson-tab').forEach((t, i) => {
+        const grades = ['5-6','7-8','9','10-11'];
+        t.classList.toggle('active', grades[i] === grade);
+      });
+      document.querySelectorAll('.lesson-panel').forEach(p => {
+        p.classList.toggle('active', p.id === 'panel-' + grade);
+      });
+    }
+
+    function toggleLesson(header) {
+      header.classList.toggle('open');
+      const body = header.nextElementSibling;
+      body.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

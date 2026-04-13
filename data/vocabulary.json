@@ -1,0 +1,59 @@
+{
+  "wordSearch": {
+    "cities": {
+      "label": "Cities of the UK",
+      "labelRu": "Города UK",
+      "words": ["LONDON", "EDINBURGH", "CARDIFF", "BELFAST", "OXFORD", "CAMBRIDGE", "GLASGOW", "BRISTOL", "LIVERPOOL", "MANCHESTER", "BATH", "YORK"]
+    },
+    "landmarks": {
+      "label": "Famous Landmarks",
+      "labelRu": "Достопримечательности",
+      "words": ["BIGBEN", "STONEHENGE", "WINDSOR", "HADRIAN", "SNOWDON", "WIMBLEDON", "THAMES", "OXFORD", "CAMBRIDGE", "TOWER"]
+    },
+    "traditions": {
+      "label": "Culture & Traditions",
+      "labelRu": "Культура и традиции",
+      "words": ["CRICKET", "RUGBY", "TEA", "BISCUIT", "KILT", "TARTAN", "HAGGIS", "HOGMANAY", "BONFIRE", "QUEUING"]
+    }
+  },
+  "hangman": {
+    "cities": [
+      { "word": "EDINBURGH", "hint": "Capital city of Scotland", "emoji": "🏴󠁧󠁢󠁳󠁣󠁴󠁿" },
+      { "word": "CAMBRIDGE", "hint": "Famous university city in eastern England", "emoji": "🎓" },
+      { "word": "LIVERPOOL", "hint": "City famous for The Beatles", "emoji": "🎵" },
+      { "word": "BELFAST", "hint": "Capital of Northern Ireland", "emoji": "🚢" },
+      { "word": "OXFORD", "hint": "City of dreaming spires", "emoji": "📚" },
+      { "word": "GLASGOW", "hint": "Scotland's largest city", "emoji": "🏙️" },
+      { "word": "CARDIFF", "hint": "Capital of Wales", "emoji": "🏴󠁧󠁢󠁷󠁬󠁳󠁿" },
+      { "word": "BRISTOL", "hint": "Port city in south-west England", "emoji": "🌉" },
+      { "word": "MANCHESTER", "hint": "Famous for football and music", "emoji": "⚽" },
+      { "word": "YORK", "hint": "Medieval walled city in northern England", "emoji": "🏰" }
+    ],
+    "landmarks": [
+      { "word": "STONEHENGE", "hint": "A prehistoric stone circle in Wiltshire", "emoji": "🪨" },
+      { "word": "WIMBLEDON", "hint": "Famous tennis tournament location", "emoji": "🎾" },
+      { "word": "BUCKINGHAM", "hint": "___ Palace: home of the King", "emoji": "👑" },
+      { "word": "HADRIAN", "hint": "___ Wall: built by Romans in 122 AD", "emoji": "🧱" },
+      { "word": "SNOWDON", "hint": "Highest mountain in Wales", "emoji": "⛰️" },
+      { "word": "BENNEVIS", "hint": "Highest mountain in the UK", "emoji": "🏔️" },
+      { "word": "THAMES", "hint": "The longest river in England", "emoji": "🌊" },
+      { "word": "LOCHNESS", "hint": "Famous lake with a legendary monster", "emoji": "🦕" },
+      { "word": "BIGBEN", "hint": "Famous clock bell in Westminster", "emoji": "🕰️" },
+      { "word": "WINDSOR", "hint": "Royal castle near London", "emoji": "🏯" }
+    ],
+    "vocabulary": [
+      { "word": "BISCUIT", "hint": "What Americans call a cookie", "emoji": "🍪" },
+      { "word": "FORTNIGHT", "hint": "A period of two weeks", "emoji": "📅" },
+      { "word": "QUEUE", "hint": "A line of people waiting", "emoji": "👥" },
+      { "word": "KNACKERED", "hint": "British slang for very tired", "emoji": "😴" },
+      { "word": "BRILLIANT", "hint": "British way to say 'excellent!'", "emoji": "⭐" },
+      { "word": "HOGMANAY", "hint": "Scottish New Year celebration", "emoji": "🎆" },
+      { "word": "HAGGIS", "hint": "Traditional Scottish dish", "emoji": "🍽️" },
+      { "word": "TARTAN", "hint": "Traditional Scottish plaid pattern", "emoji": "🏴󠁧󠁢󠁳󠁣󠁴󠁿" },
+      { "word": "CRICKET", "hint": "England's national sport", "emoji": "🏏" },
+      { "word": "RUGBY", "hint": "Popular British team sport", "emoji": "🏉" },
+      { "word": "BLOKE", "hint": "British informal word for a man", "emoji": "👨" },
+      { "word": "CHEERIO", "hint": "British informal goodbye", "emoji": "👋" }
+    ]
+  }
+}

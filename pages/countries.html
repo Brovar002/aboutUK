@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countries of the UK — About the UK</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .country-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; padding: 48px 0; }
+    @media(max-width:700px) { .country-cards { grid-template-columns:1fr; } }
+    .country-card {
+      border-radius: var(--radius-xl); overflow: hidden;
+      box-shadow: var(--shadow-lg); background: var(--white);
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .country-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,0.15); }
+    .cc-header {
+      padding: 32px 28px; color: #fff; position: relative; overflow: hidden;
+    }
+    .cc-header::before {
+      content:''; position:absolute; inset:0; opacity:0.08;
+      background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.5) 20px, rgba(255,255,255,0.5) 22px);
+    }
+    .cc-flag { font-size: 3.5rem; margin-bottom: 12px; position: relative; }
+    .cc-name { font-size: 1.8rem; font-weight: 900; position: relative; }
+    .cc-name-ru { color: rgba(255,255,255,0.75); font-size: 0.95rem; position: relative; }
+    .cc-body { padding: 24px 28px; flex: 1; }
+    .cc-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+    .cc-fact { background: var(--bg); border-radius: 8px; padding: 10px 12px; }
+    .cc-fact .label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .cc-fact .value { font-family: var(--font-h); font-weight: 700; font-size: 0.9rem; margin-top: 2px; }
+    .cc-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .cc-footer { padding: 16px 28px; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="../index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link" href="map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link active" href="countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link" href="quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link" href="flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link" href="wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link" href="lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Страны UK</span>
+      </div>
+      <h1><i class="fa fa-flag"></i> Four Nations of the United Kingdom</h1>
+      <p>England, Scotland, Wales &amp; Northern Ireland — four countries, one Kingdom</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="country-cards">
+
+      <a href="england.html" class="country-card scroll-fade" style="text-decoration:none;color:inherit">
+        <div class="cc-header" style="background:linear-gradient(135deg,#CF142B,#A50E22)">
+          <div class="cc-flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+          <div class="cc-name">England</div>
+          <div class="cc-name-ru">Англия</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-facts">
+            <div class="cc-fact"><div class="label">Capital</div><div class="value">London</div></div>
+            <div class="cc-fact"><div class="label">Population</div><div class="value">56.5 million</div></div>
+            <div class="cc-fact"><div class="label">Area</div><div class="value">130,395 km²</div></div>
+            <div class="cc-fact"><div class="label">Patron Saint</div><div class="value">St. George</div></div>
+          </div>
+          <p class="cc-desc">The largest and most populous UK nation. Home to London, the Industrial Revolution, Shakespeare, the Beatles, and some of the world's greatest universities.</p>
+        </div>
+        <div class="cc-footer">
+          <span class="btn btn-danger btn-sm"><i class="fa fa-arrow-right"></i> Explore England</span>
+        </div>
+      </a>
+
+      <a href="scotland.html" class="country-card scroll-fade" style="text-decoration:none;color:inherit">
+        <div class="cc-header" style="background:linear-gradient(135deg,#003F87,#001A5C)">
+          <div class="cc-flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+          <div class="cc-name">Scotland</div>
+          <div class="cc-name-ru">Шотландия</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-facts">
+            <div class="cc-fact"><div class="label">Capital</div><div class="value">Edinburgh</div></div>
+            <div class="cc-fact"><div class="label">Population</div><div class="value">5.5 million</div></div>
+            <div class="cc-fact"><div class="label">Area</div><div class="value">77,933 km²</div></div>
+            <div class="cc-fact"><div class="label">Patron Saint</div><div class="value">St. Andrew</div></div>
+          </div>
+          <p class="cc-desc">Land of dramatic Highland scenery, ancient castles, whisky distilleries, and the Loch Ness legend. Home to the Scots, Gaelic culture, and some of science's greatest minds.</p>
+        </div>
+        <div class="cc-footer">
+          <span class="btn btn-primary btn-sm"><i class="fa fa-arrow-right"></i> Explore Scotland</span>
+        </div>
+      </a>
+
+      <a href="wales.html" class="country-card scroll-fade" style="text-decoration:none;color:inherit">
+        <div class="cc-header" style="background:linear-gradient(135deg,#00712D,#004d1e)">
+          <div class="cc-flag">🏴󠁧󠁢󠁷󠁬󠁳󠁿</div>
+          <div class="cc-name">Wales</div>
+          <div class="cc-name-ru">Уэльс</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-facts">
+            <div class="cc-fact"><div class="label">Capital</div><div class="value">Cardiff</div></div>
+            <div class="cc-fact"><div class="label">Population</div><div class="value">3.2 million</div></div>
+            <div class="cc-fact"><div class="label">Area</div><div class="value">20,779 km²</div></div>
+            <div class="cc-fact"><div class="label">Patron Saint</div><div class="value">St. David</div></div>
+          </div>
+          <p class="cc-desc">A nation of mountains, castles, and Celtic language. Wales has more castles per square mile than any other country, and a passionate singing and rugby tradition.</p>
+        </div>
+        <div class="cc-footer">
+          <span class="btn btn-sm" style="background:#00712D;color:#fff"><i class="fa fa-arrow-right"></i> Explore Wales</span>
+        </div>
+      </a>
+
+      <a href="northern-ireland.html" class="country-card scroll-fade" style="text-decoration:none;color:inherit">
+        <div class="cc-header" style="background:linear-gradient(135deg,#FF6B35,#cc4a18)">
+          <div class="cc-flag">🇬🇧</div>
+          <div class="cc-name">Northern Ireland</div>
+          <div class="cc-name-ru">Северная Ирландия</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-facts">
+            <div class="cc-fact"><div class="label">Capital</div><div class="value">Belfast</div></div>
+            <div class="cc-fact"><div class="label">Population</div><div class="value">1.9 million</div></div>
+            <div class="cc-fact"><div class="label">Area</div><div class="value">13,843 km²</div></div>
+            <div class="cc-fact"><div class="label">Patron Saint</div><div class="value">St. Patrick</div></div>
+          </div>
+          <p class="cc-desc">The smallest UK nation, famous for the Giant's Causeway, the birthplace of the Titanic, and the stunning Antrim Coast. A place of great natural beauty and resilience.</p>
+        </div>
+        <div class="cc-footer">
+          <span class="btn btn-sm" style="background:#FF6B35;color:#fff"><i class="fa fa-arrow-right"></i> Explore N. Ireland</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Quick comparison table -->
+    <div style="background:var(--white);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow);margin-bottom:48px;overflow-x:auto">
+      <h3 style="margin-bottom:20px">Quick Comparison</h3>
+      <table style="width:100%;border-collapse:collapse;font-size:0.9rem">
+        <thead>
+          <tr style="background:var(--blue);color:#fff">
+            <th style="padding:12px 16px;text-align:left;border-radius:8px 0 0 0">Country</th>
+            <th style="padding:12px 16px;text-align:left">Capital</th>
+            <th style="padding:12px 16px;text-align:left">Population</th>
+            <th style="padding:12px 16px;text-align:left">Language(s)</th>
+            <th style="padding:12px 16px;text-align:left;border-radius:0 8px 0 0">Symbol</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:12px 16px;font-weight:700">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</td>
+            <td style="padding:12px 16px">London</td>
+            <td style="padding:12px 16px">56.5M</td>
+            <td style="padding:12px 16px">English</td>
+            <td style="padding:12px 16px">🦁 Lion, Tudor Rose</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border);background:var(--bg)">
+            <td style="padding:12px 16px;font-weight:700">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland</td>
+            <td style="padding:12px 16px">Edinburgh</td>
+            <td style="padding:12px 16px">5.5M</td>
+            <td style="padding:12px 16px">English, Scots Gaelic</td>
+            <td style="padding:12px 16px">🦄 Unicorn, Thistle</td>
+          </tr>
+          <tr style="border-bottom:1px solid var(--border)">
+            <td style="padding:12px 16px;font-weight:700">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Wales</td>
+            <td style="padding:12px 16px">Cardiff</td>
+            <td style="padding:12px 16px">3.2M</td>
+            <td style="padding:12px 16px">English, Welsh</td>
+            <td style="padding:12px 16px">🐉 Red Dragon, Daffodil</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 16px;font-weight:700">🇬🇧 N. Ireland</td>
+            <td style="padding:12px 16px">Belfast</td>
+            <td style="padding:12px 16px">1.9M</td>
+            <td style="padding:12px 16px">English, Irish</td>
+            <td style="padding:12px 16px">☘️ Shamrock, Red Hand</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+
+  <script src="../js/progress.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wales — About the UK</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .country-hero { background: linear-gradient(135deg, #00712D 0%, #004d1e 100%); }
+    .accent { color: #00712D; }
+    .section-border { border-left: 4px solid #00712D; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="../index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link" href="map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link active" href="countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link" href="quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link" href="flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link" href="wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link" href="lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero country-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a><i class="fa fa-chevron-right"></i>
+        <a href="countries.html">Страны</a><i class="fa fa-chevron-right"></i>
+        <span>Wales</span>
+      </div>
+      <div style="font-size:4rem;margin-bottom:16px">🏴󠁧󠁢󠁷󠁬󠁳󠁿</div>
+      <h1>Wales — Cymru</h1>
+      <p>Land of castles, dragons, music and the Welsh language</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:32px;padding:48px 0;align-items:start">
+      <div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px">
+          <div class="fact-box"><div class="fact-label">Capital</div><div class="fact-value">Cardiff</div></div>
+          <div class="fact-box"><div class="fact-label">Area</div><div class="fact-value">20,779 km²</div></div>
+          <div class="fact-box"><div class="fact-label">Population</div><div class="fact-value">3.2 million</div></div>
+          <div class="fact-box"><div class="fact-label">Languages</div><div class="fact-value">English &amp; Welsh</div></div>
+          <div class="fact-box"><div class="fact-label">Patron Saint</div><div class="fact-value">St. David (Mar 1)</div></div>
+          <div class="fact-box"><div class="fact-label">National Symbol</div><div class="fact-value">🐉 Red Dragon</div></div>
+        </div>
+
+        <div class="section-border" style="padding-left:20px;margin-bottom:36px">
+          <h2 style="margin-bottom:16px"><span class="accent">The Welsh Language (Cymraeg)</span></h2>
+          <p>Welsh (Cymraeg) is one of Europe's oldest living languages, belonging to the Celtic language family. About 29% of people in Wales speak Welsh. All road signs in Wales are bilingual — in both Welsh and English.</p>
+          <p>The Welsh word for Wales is <strong>Cymru</strong> (pronounced "Cum-ree"), meaning "land of compatriots". The language survived centuries of pressure and is now taught in all Welsh schools. There is even a Welsh-language TV channel, S4C.</p>
+          <div style="background:#D1FAE5;border-radius:var(--radius);padding:16px;margin-top:16px">
+            <strong>Some Welsh words:</strong>
+            <ul style="margin-top:8px;list-style:none;font-size:0.9rem;display:grid;grid-template-columns:1fr 1fr;gap:6px">
+              <li>🐉 Draig = Dragon</li><li>🏰 Castell = Castle</li>
+              <li>🌊 Môr = Sea</li><li>⛰️ Mynydd = Mountain</li>
+              <li>🏡 Cymru = Wales</li><li>👋 Bore da = Good morning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-border" style="padding-left:20px;margin-bottom:36px">
+          <h2 style="margin-bottom:16px"><span class="accent">Culture &amp; Music</span></h2>
+          <p>Wales is famous for its <strong>choral singing tradition</strong> — Welsh male voice choirs are renowned worldwide. The <strong>Eisteddfod</strong> is a celebrated national festival of poetry, literature, and music dating back to the 12th century.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+            <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+              <div style="font-size:1.5rem;margin-bottom:6px">🎼</div>
+              <strong>Eisteddfod</strong>
+              <p style="font-size:0.875rem;color:var(--text-muted);margin:6px 0 0">National festival of Welsh culture, music and poetry. Both a traditional and modern celebration.</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+              <div style="font-size:1.5rem;margin-bottom:6px">🏉</div>
+              <strong>Rugby Union</strong>
+              <p style="font-size:0.875rem;color:var(--text-muted);margin:6px 0 0">Wales's national sport. The Welsh rugby team plays in red at the Principality Stadium in Cardiff.</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+              <div style="font-size:1.5rem;margin-bottom:6px">🌼</div>
+              <strong>St. David's Day</strong>
+              <p style="font-size:0.875rem;color:var(--text-muted);margin:6px 0 0">March 1st — national day. Welsh people wear daffodils or leeks as national symbols.</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+              <div style="font-size:1.5rem;margin-bottom:6px">🏰</div>
+              <strong>Castle Country</strong>
+              <p style="font-size:0.875rem;color:var(--text-muted);margin:6px 0 0">Wales has over 600 castles — more per square mile than any other country in the world.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#D1FAE5;border-radius:var(--radius-lg);padding:24px;margin-bottom:36px">
+          <h3 style="margin-bottom:16px;color:#065F46">💡 Interesting Facts about Wales</h3>
+          <ul style="list-style:none;display:grid;gap:10px">
+            <li style="display:flex;gap:10px"><span style="color:#065F46;font-weight:700">→</span> Wales has more castles per square mile than any other country — over 600!</li>
+            <li style="display:flex;gap:10px"><span style="color:#065F46;font-weight:700">→</span> The world's first passenger railway ran in South Wales in 1807.</li>
+            <li style="display:flex;gap:10px"><span style="color:#065F46;font-weight:700">→</span> Tom Jones, Anthony Hopkins, and Catherine Zeta-Jones are all Welsh.</li>
+            <li style="display:flex;gap:10px"><span style="color:#065F46;font-weight:700">→</span> In 1916, David Lloyd George became the first Welsh Prime Minister of the UK.</li>
+            <li style="display:flex;gap:10px"><span style="color:#065F46;font-weight:700">→</span> Snowdon (Yr Wyddfa) — at 1,085m — is the highest peak in Wales and England.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="position:sticky;top:calc(var(--nav-h)+20px)">
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);margin-bottom:20px">
+          <h4 style="margin-bottom:16px;color:var(--text-muted);font-size:0.85rem;text-transform:uppercase">Famous Landmarks</h4>
+          <div style="display:grid;gap:12px">
+            <div>🏰 <strong>Cardiff Castle</strong><br><span style="font-size:0.8rem;color:var(--text-muted)">Medieval castle in the capital</span></div>
+            <div>⛰️ <strong>Snowdon</strong><br><span style="font-size:0.8rem;color:var(--text-muted)">Highest mountain in Wales</span></div>
+            <div>🏯 <strong>Caernarfon Castle</strong><br><span style="font-size:0.8rem;color:var(--text-muted)">13th-century fortress, UNESCO</span></div>
+            <div>🌊 <strong>Pembrokeshire Coast</strong><br><span style="font-size:0.8rem;color:var(--text-muted)">UK's only coastal National Park</span></div>
+          </div>
+        </div>
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);margin-bottom:20px">
+          <h4 style="margin-bottom:16px;color:var(--text-muted);font-size:0.85rem;text-transform:uppercase">Cities</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span class="badge badge-green">🏙 Cardiff</span>
+            <span class="badge badge-green">Swansea</span>
+            <span class="badge badge-green">Newport</span>
+            <span class="badge badge-green">Bangor</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="quiz.html" class="btn btn-sm" style="background:#00712D;color:#fff"><i class="fa fa-question-circle"></i> Wales Quiz</a>
+          <a href="countries.html" class="btn btn-outline"><i class="fa fa-arrow-left"></i> All Countries</a>
+          <a href="map.html" class="btn btn-ghost"><i class="fa fa-map"></i> See on Map</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+  <script src="../js/progress.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

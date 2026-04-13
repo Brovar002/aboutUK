@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Map — About the UK</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/map.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="../index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link active" href="map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link" href="countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link" href="quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link" href="flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link" href="wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link" href="lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Интерактивная карта</span>
+      </div>
+      <h1><i class="fa fa-map"></i> Interactive Map of the UK</h1>
+      <p>Нажми на страну, чтобы узнать о ней подробнее &nbsp;•&nbsp; Click a nation to explore it</p>
+    </div>
+  </div>
+
+  <!-- Map Layout -->
+  <div class="container">
+    <div class="map-layout">
+
+      <!-- SVG Map -->
+      <div class="map-container">
+        <p class="map-title">🖱 Click / tap a region to explore it</p>
+
+        <svg class="uk-map-svg" viewBox="0 0 500 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive map of the United Kingdom">
+          <title>Interactive map of the United Kingdom</title>
+
+          <!-- ── Northern Ireland ── -->
+          <path class="nation nation-northern-ireland" data-nation="northern-ireland"
+            d="M 78,248 C 90,232 113,225 137,230 C 155,234 164,247 162,265
+               C 160,280 149,294 130,300 C 110,306 88,301 78,288
+               C 68,276 68,262 78,248 Z"
+            tabindex="0" role="button" aria-label="Northern Ireland"/>
+
+          <!-- ── Scotland ── -->
+          <path class="nation nation-scotland" data-nation="scotland"
+            d="M 168,308 L 197,296 L 232,292 L 262,288 L 295,292
+               L 325,300 L 345,316 L 362,305 L 378,284 L 388,258
+               L 382,228 L 394,200 L 390,166 L 372,136 L 348,108
+               L 318,86 L 282,66 L 248,52 L 212,50 L 178,62
+               L 152,84 L 138,116 L 138,154 L 148,192 L 142,232
+               L 148,268 L 168,308 Z"
+            tabindex="0" role="button" aria-label="Scotland"/>
+
+          <!-- ── England (drawn first, Wales covers western protrusion on top) ── -->
+          <path class="nation nation-england" data-nation="england"
+            d="M 168,308 L 345,316 L 392,340 L 415,395
+               L 425,445 L 415,488 L 405,530 L 390,568
+               L 362,600 L 328,624 L 286,640 L 245,642
+               L 206,636 L 172,620 L 148,600 L 125,565
+               L 108,530 L 108,480 L 125,452 L 148,435
+               L 155,400 L 165,360 L 168,330 L 168,308 Z"
+            tabindex="0" role="button" aria-label="England"/>
+
+          <!-- ── Wales (drawn on top of England, covers western protrusion) ── -->
+          <path class="nation nation-wales" data-nation="wales"
+            d="M 168,330 L 165,360 L 148,395 L 125,432
+               L 108,470 L 108,518 L 125,548 L 148,560
+               L 175,555 L 196,520 L 200,475 L 196,428
+               L 192,388 L 185,355 L 168,330 Z"
+            tabindex="0" role="button" aria-label="Wales"/>
+
+          <!-- ── City Markers ── -->
+          <!-- London -->
+          <g class="city-marker" data-city="London" data-country="england">
+            <circle class="city-dot capital" cx="310" cy="530" r="6"/>
+            <text class="city-label" x="320" y="526">London ★</text>
+          </g>
+          <!-- Manchester -->
+          <g class="city-marker" data-city="Manchester" data-country="england">
+            <circle class="city-dot" cx="272" cy="408" r="4"/>
+            <text class="city-label" x="282" y="405">Manchester</text>
+          </g>
+          <!-- Edinburgh -->
+          <g class="city-marker" data-city="Edinburgh" data-country="scotland">
+            <circle class="city-dot capital" cx="280" cy="226" r="6"/>
+            <text class="city-label" x="290" y="222">Edinburgh ★</text>
+          </g>
+          <!-- Glasgow -->
+          <g class="city-marker" data-city="Glasgow" data-country="scotland">
+            <circle class="city-dot" cx="228" cy="236" r="4"/>
+            <text class="city-label" x="195" y="248">Glasgow</text>
+          </g>
+          <!-- Cardiff -->
+          <g class="city-marker" data-city="Cardiff" data-country="wales">
+            <circle class="city-dot capital" cx="185" cy="505" r="6"/>
+            <text class="city-label" x="148" y="500">Cardiff ★</text>
+          </g>
+          <!-- Belfast -->
+          <g class="city-marker" data-city="Belfast" data-country="northern-ireland">
+            <circle class="city-dot capital" cx="118" cy="260" r="6"/>
+            <text class="city-label" x="128" y="255">Belfast ★</text>
+          </g>
+          <!-- Birmingham -->
+          <g class="city-marker" data-city="Birmingham" data-country="england">
+            <circle class="city-dot" cx="295" cy="474" r="4"/>
+            <text class="city-label" x="302" y="470">Birmingham</text>
+          </g>
+          <!-- Liverpool -->
+          <g class="city-marker" data-city="Liverpool" data-country="england">
+            <circle class="city-dot" cx="248" cy="418" r="4"/>
+            <text class="city-label" x="215" y="415">Liverpool</text>
+          </g>
+          <!-- Oxford -->
+          <g class="city-marker" data-city="Oxford" data-country="england">
+            <circle class="city-dot" cx="305" cy="512" r="3.5"/>
+            <text class="city-label" x="312" y="508">Oxford</text>
+          </g>
+          <!-- Aberdeen -->
+          <g class="city-marker" data-city="Aberdeen" data-country="scotland">
+            <circle class="city-dot" cx="318" cy="150" r="3.5"/>
+            <text class="city-label" x="325" y="146">Aberdeen</text>
+          </g>
+
+        </svg>
+
+        <!-- Tooltip -->
+        <div id="mapTooltip" style="display:none;position:absolute;top:16px;left:50%;transform:translateX(-50%);
+          background:rgba(0,0,0,0.75);color:#fff;padding:6px 14px;border-radius:20px;
+          font-family:var(--font-h);font-weight:700;font-size:0.875rem;pointer-events:none;white-space:nowrap">
+        </div>
+
+        <!-- Legend -->
+        <div class="map-legend">
+          <div class="legend-item" data-nation="england">
+            <div class="legend-dot" style="background:#CF142B"></div> England
+          </div>
+          <div class="legend-item" data-nation="scotland">
+            <div class="legend-dot" style="background:#003F87"></div> Scotland
+          </div>
+          <div class="legend-item" data-nation="wales">
+            <div class="legend-dot" style="background:#00712D"></div> Wales
+          </div>
+          <div class="legend-item" data-nation="northern-ireland">
+            <div class="legend-dot" style="background:#FF6B35"></div> N. Ireland
+          </div>
+          <div class="legend-item" style="cursor:default">
+            <div class="legend-dot" style="background:#FFD700;border:1px solid #B8860B"></div> Capital ★
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Panel -->
+      <div class="info-panel">
+        <div class="info-placeholder" id="infoPlaceholder">
+          <div class="big-flag">🇬🇧</div>
+          <h3 style="margin-bottom:12px">Select a Region</h3>
+          <p>Click on England, Scotland, Wales, or Northern Ireland on the map to learn about it.</p>
+          <p style="margin-top:12px;color:var(--text-muted)">Нажми на одну из четырёх стран UK на карте слева.</p>
+        </div>
+        <div class="info-content" id="infoContent"></div>
+      </div>
+
+    </div>
+
+    <!-- Quick facts row -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:0 0 48px">
+      <a href="england.html" style="text-decoration:none">
+        <div class="card card-body" style="border-top:4px solid #CF142B;text-align:center">
+          <div style="font-size:2rem">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+          <div style="font-family:var(--font-h);font-weight:800;margin:8px 0 4px">England</div>
+          <div style="font-size:0.8rem;color:var(--text-muted)">56.5M people · London</div>
+        </div>
+      </a>
+      <a href="scotland.html" style="text-decoration:none">
+        <div class="card card-body" style="border-top:4px solid #003F87;text-align:center">
+          <div style="font-size:2rem">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+          <div style="font-family:var(--font-h);font-weight:800;margin:8px 0 4px">Scotland</div>
+          <div style="font-size:0.8rem;color:var(--text-muted)">5.5M people · Edinburgh</div>
+        </div>
+      </a>
+      <a href="wales.html" style="text-decoration:none">
+        <div class="card card-body" style="border-top:4px solid #00712D;text-align:center">
+          <div style="font-size:2rem">🏴󠁧󠁢󠁷󠁬󠁳󠁿</div>
+          <div style="font-family:var(--font-h);font-weight:800;margin:8px 0 4px">Wales</div>
+          <div style="font-size:0.8rem;color:var(--text-muted)">3.2M people · Cardiff</div>
+        </div>
+      </a>
+      <a href="northern-ireland.html" style="text-decoration:none">
+        <div class="card card-body" style="border-top:4px solid #FF6B35;text-align:center">
+          <div style="font-size:2rem">🇬🇧</div>
+          <div style="font-family:var(--font-h);font-weight:800;margin:8px 0 4px">N. Ireland</div>
+          <div style="font-size:0.8rem;color:var(--text-muted)">1.9M people · Belfast</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+
+  <script src="../js/progress.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/map.js"></script>
+</body>
+</html>

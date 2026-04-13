@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Игры со словами — About the UK</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/games.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="../index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link" href="map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link" href="countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link" href="quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link" href="flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link active" href="wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link" href="lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Игры со словами</span>
+      </div>
+      <h1><i class="fa fa-gamepad"></i> Word Games</h1>
+      <p>Найди слова в сетке или угадай слово &nbsp;•&nbsp; Word Search &amp; Hangman</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="games-layout">
+
+      <!-- Game Tabs -->
+      <div class="game-tabs">
+        <button class="game-tab active" data-tab="wordsearch" onclick="WG.switchTab('wordsearch')">
+          <i class="fa fa-search"></i> Word Search
+        </button>
+        <button class="game-tab" data-tab="hangman" onclick="WG.switchTab('hangman')">
+          <i class="fa fa-person"></i> Hangman
+        </button>
+      </div>
+
+      <!-- ════ WORD SEARCH ════ -->
+      <div class="game-panel active" id="panel-wordsearch">
+
+        <div class="flex-between mb-16" style="flex-wrap:wrap;gap:12px">
+          <div>
+            <h3 style="margin-bottom:6px">Find the hidden words! <span style="font-size:1rem">🔍</span></h3>
+            <p style="color:var(--text-muted);font-size:0.875rem">Выдели слово мышкой или пальцем в любом направлении</p>
+          </div>
+          <div class="theme-selector">
+            <button class="theme-btn active" onclick="WordSearch.newGame('cities'); this.parentElement.querySelectorAll('.theme-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🏙 Cities</button>
+            <button class="theme-btn" onclick="WordSearch.newGame('landmarks'); this.parentElement.querySelectorAll('.theme-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🏰 Landmarks</button>
+            <button class="theme-btn" onclick="WordSearch.newGame('traditions'); this.parentElement.querySelectorAll('.theme-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🎭 Traditions</button>
+          </div>
+        </div>
+
+        <div class="game-status">
+          <div class="game-stat">
+            <i class="fa fa-clock"></i> <span id="wsTimer">00:00</span>
+          </div>
+          <div class="game-stat">
+            <i class="fa fa-check"></i> Found: <span id="wsFoundCount">0</span>/<span id="wsWordCount">0</span>
+          </div>
+        </div>
+
+        <div class="ws-layout">
+          <div class="ws-grid-wrap">
+            <div class="ws-grid" id="wsGrid"></div>
+          </div>
+          <div class="ws-words">
+            <h3>Find these words:</h3>
+            <ul class="ws-word-list" id="wsWordList"></ul>
+            <div class="ws-actions">
+              <button class="btn btn-primary btn-sm" onclick="WordSearch.newGame()">
+                <i class="fa fa-rotate-right"></i> New Game
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /wordsearch -->
+
+      <!-- ════ HANGMAN ════ -->
+      <div class="game-panel" id="panel-hangman">
+
+        <div class="flex-between mb-16" style="flex-wrap:wrap;gap:12px">
+          <div>
+            <h3 style="margin-bottom:6px">Guess the word! <span style="font-size:1rem">🎯</span></h3>
+            <p style="color:var(--text-muted);font-size:0.875rem">Нажимай буквы, чтобы угадать слово (6 попыток)</p>
+          </div>
+          <div class="theme-selector">
+            <button class="theme-btn active" onclick="HangmanGame.newGame('cities'); this.parentElement.querySelectorAll('.theme-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🏙 Cities</button>
+            <button class="theme-btn" onclick="HangmanGame.newGame('landmarks'); this.parentElement.querySelectorAll('.theme-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">🏰 Landmarks</button>
+            <button class="theme-btn" onclick="HangmanGame.newGame('vocabulary'); this.parentElement.querySelectorAll('.theme-btn').forEach(b=>b.classList.remove('active')); this.classList.add('active')">📖 Vocabulary</button>
+          </div>
+        </div>
+
+        <div class="hm-layout">
+
+          <!-- Drawing -->
+          <div class="hm-drawing">
+            <svg class="hm-svg" id="hmSvg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"></svg>
+            <div class="hm-tries">
+              Wrong guesses: <span class="tries-left" id="hmTriesLeft">0</span> / 6
+            </div>
+            <button class="btn btn-outline btn-sm mt-16" onclick="HangmanGame.newGame()" style="width:100%">
+              <i class="fa fa-rotate-right"></i> New Word
+            </button>
+          </div>
+
+          <!-- Game area -->
+          <div class="hm-game">
+            <div class="hm-hint" id="hmHint"></div>
+
+            <div class="hm-word-display" id="hmWord"></div>
+
+            <div class="hm-keyboard" id="hmKeyboard"></div>
+
+            <div class="hm-result" id="hmResult"></div>
+          </div>
+
+        </div>
+
+        <!-- How to play -->
+        <div class="fact-box mt-24">
+          <div class="fact-label">Как играть</div>
+          <div style="font-size:0.875rem;margin-top:6px;line-height:1.7">
+            Нажимай буквы на клавиатуре, чтобы угадать слово. Каждая неправильная буква рисует часть человека на виселице. У тебя 6 попыток!
+          </div>
+        </div>
+
+      </div><!-- /hangman -->
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+
+  <script src="../js/progress.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/wordgames.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Викторины — About the UK</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/quiz.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="../index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link" href="map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link" href="countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link active" href="quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link" href="flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link" href="wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link" href="lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Викторины</span>
+      </div>
+      <h1><i class="fa fa-question-circle"></i> Quizzes &amp; Tests</h1>
+      <p>Проверь свои знания о UK &nbsp;•&nbsp; 40+ вопросов по 4 темам, 3 уровня сложности</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- ── SETUP SCREEN ── -->
+    <div class="quiz-setup" id="quizSetup">
+      <h2>Настрой свой тест</h2>
+      <p class="subtitle">Выбери тему и уровень класса, затем нажми Start!</p>
+
+      <div class="setup-section">
+        <h3>📚 Тема / Topic</h3>
+        <div class="topic-grid">
+          <button class="topic-btn" data-topic="geography" onclick="Quiz.selectTopic('geography')">
+            <span class="t-icon">🗺️</span>
+            <span>
+              <span class="t-name">Geography</span>
+              <span class="t-count">Карты, реки, горы, города</span>
+            </span>
+          </button>
+          <button class="topic-btn" data-topic="culture" onclick="Quiz.selectTopic('culture')">
+            <span class="t-icon">🎭</span>
+            <span>
+              <span class="t-name">Culture &amp; Traditions</span>
+              <span class="t-count">Традиции, праздники, еда</span>
+            </span>
+          </button>
+          <button class="topic-btn" data-topic="history" onclick="Quiz.selectTopic('history')">
+            <span class="t-icon">📜</span>
+            <span>
+              <span class="t-name">History</span>
+              <span class="t-count">События, монархи, войны</span>
+            </span>
+          </button>
+          <button class="topic-btn" data-topic="language" onclick="Quiz.selectTopic('language')">
+            <span class="t-icon">🗣️</span>
+            <span>
+              <span class="t-name">British English</span>
+              <span class="t-count">Лексика, сленг, отличия</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="setup-section">
+        <h3>🎓 Уровень / Level</h3>
+        <div class="level-grid">
+          <button class="level-btn" data-level="5-7" onclick="Quiz.selectLevel('5-7')">
+            <div class="l-grade">5–7</div>
+            <div class="l-label">класс · Beginner</div>
+          </button>
+          <button class="level-btn" data-level="8-9" onclick="Quiz.selectLevel('8-9')">
+            <div class="l-grade">8–9</div>
+            <div class="l-label">класс · Intermediate</div>
+          </button>
+          <button class="level-btn" data-level="10-11" onclick="Quiz.selectLevel('10-11')">
+            <div class="l-grade">10–11</div>
+            <div class="l-label">класс · Advanced</div>
+          </button>
+        </div>
+      </div>
+
+      <div class="start-row">
+        <button class="btn btn-primary btn-lg" onclick="Quiz.startQuiz()">
+          <i class="fa fa-play"></i> Start Quiz
+        </button>
+        <div class="best-score" id="bestScoreInfo">Выбери тему и уровень</div>
+      </div>
+    </div>
+
+    <!-- ── ACTIVE QUIZ ── -->
+    <div class="quiz-active" id="quizActive">
+      <div class="quiz-header">
+        <div class="quiz-progress-text" id="qProgressText">Вопрос 1 из 10</div>
+        <div class="game-stat quiz-timer" id="qTimerWrap">
+          <i class="fa fa-clock"></i> <span id="qTimer">30s</span>
+        </div>
+        <div class="quiz-score-badge">
+          <i class="fa fa-star"></i> Score: <span id="qScoreVal">0</span>
+        </div>
+      </div>
+
+      <div class="quiz-progress-bar progress-bar-wrap">
+        <div class="progress-bar-fill" id="qProgressBar" style="width:0%"></div>
+      </div>
+
+      <div class="question-card">
+        <div class="question-num" id="questionNum">Question 1</div>
+        <div class="question-text" id="questionText"></div>
+      </div>
+
+      <div class="options-grid" id="optionsGrid"></div>
+
+      <div class="feedback-box" id="feedbackBox"></div>
+
+      <div class="next-btn-row" id="nextBtnRow">
+        <button class="btn btn-primary next-btn" onclick="Quiz.nextQuestion()">
+          Next Question →
+        </button>
+      </div>
+    </div>
+
+    <!-- ── RESULTS ── -->
+    <div class="quiz-results" id="quizResults">
+      <div class="result-score-circle">
+        <div class="big-score" id="rScore">0</div>
+        <div class="total-score" id="rTotal">/10</div>
+      </div>
+
+      <div style="font-size:2.5rem;margin-bottom:8px" id="resultEmoji">🎉</div>
+      <h2 class="result-title" id="resultMsg">Great work!</h2>
+      <p class="result-subtitle">
+        You earned <strong id="pointsEarned">0</strong> points!
+      </p>
+
+      <div class="result-stats">
+        <div class="result-stat">
+          <div class="rs-value" id="rCorrect">0</div>
+          <div class="rs-label">✅ Правильных</div>
+        </div>
+        <div class="result-stat">
+          <div class="rs-value" id="rWrong">0</div>
+          <div class="rs-label">❌ Неправильных</div>
+        </div>
+        <div class="result-stat">
+          <div class="rs-value" id="rPercent">0%</div>
+          <div class="rs-label">📊 Результат</div>
+        </div>
+      </div>
+
+      <div class="result-review">
+        <h3>📖 Review Your Mistakes</h3>
+        <div id="reviewList"></div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" onclick="Quiz.startQuiz()">
+          <i class="fa fa-rotate-right"></i> Try Again
+        </button>
+        <button class="btn btn-outline" onclick="Quiz.restart()">
+          <i class="fa fa-list"></i> Change Topic
+        </button>
+        <a href="../index.html" class="btn btn-ghost">
+          <i class="fa fa-home"></i> Главная
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+
+  <script src="../js/progress.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/quiz.js"></script>
+</body>
+</html>

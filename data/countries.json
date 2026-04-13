@@ -1,0 +1,134 @@
+{
+  "england": {
+    "id": "england",
+    "name": "England",
+    "nameRu": "Англия",
+    "capital": "London",
+    "capitalRu": "Лондон",
+    "area": "130,395 km²",
+    "population": "56.5 million",
+    "language": "English",
+    "currency": "Pound Sterling (£)",
+    "patron": "St. George (April 23)",
+    "flower": "Tudor Rose",
+    "animal": "Lion",
+    "flagColors": "White cross of St George on red background",
+    "color": "#CF142B",
+    "emoji": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "description": "England is the largest and most populous country of the United Kingdom. Home to London — one of the world's most global cities — England is famous for its rich history, the monarchy, world-class universities, and cultural landmarks.",
+    "facts": [
+      "England has the world's oldest parliamentary democracy",
+      "The Industrial Revolution began in England in the 18th century",
+      "England invented the sports of football, cricket, and tennis",
+      "The NHS (National Health Service) was founded in England in 1948",
+      "English is spoken as a first language by over 400 million people worldwide"
+    ],
+    "landmarks": [
+      { "name": "Buckingham Palace", "desc": "The official London residence and administrative headquarters of the monarch of the UK.", "emoji": "🏰" },
+      { "name": "Big Ben & Parliament", "desc": "The iconic clock tower next to the Houses of Parliament in Westminster, London.", "emoji": "🕰️" },
+      { "name": "Stonehenge", "desc": "A prehistoric stone monument in Wiltshire, built around 3000 BC. Its purpose remains a mystery.", "emoji": "🪨" },
+      { "name": "Tower of London", "desc": "A historic castle on the north bank of the Thames, used as a royal palace and prison.", "emoji": "🗼" },
+      { "name": "Oxford & Cambridge", "desc": "Two of the world's oldest and most prestigious universities, both founded in the Middle Ages.", "emoji": "🎓" }
+    ],
+    "cities": ["London", "Manchester", "Birmingham", "Liverpool", "Bristol", "Oxford", "Cambridge", "York", "Bath", "Brighton"]
+  },
+  "scotland": {
+    "id": "scotland",
+    "name": "Scotland",
+    "nameRu": "Шотландия",
+    "capital": "Edinburgh",
+    "capitalRu": "Эдинбург",
+    "area": "77,933 km²",
+    "population": "5.5 million",
+    "language": "English, Scottish Gaelic",
+    "currency": "Pound Sterling (£)",
+    "patron": "St. Andrew (November 30)",
+    "flower": "Thistle",
+    "animal": "Unicorn",
+    "flagColors": "White diagonal cross (Saltire) on blue background",
+    "color": "#003F87",
+    "emoji": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "description": "Scotland occupies the northern third of Great Britain and is known for its dramatic Highland landscapes, ancient castles, whisky distilleries, and rich Celtic heritage. The Scottish people have a distinct culture, language, and legal system.",
+    "facts": [
+      "Scotland has over 790 islands, including the Hebrides, Orkney, and Shetland",
+      "Scottish scientist Alexander Fleming discovered penicillin in 1928",
+      "Scotland has its own legal and education systems separate from England",
+      "The kilt, tartan, and bagpipes are iconic Scottish cultural symbols",
+      "Ben Nevis (1,345m) is the highest mountain in the British Isles"
+    ],
+    "landmarks": [
+      { "name": "Edinburgh Castle", "desc": "A historic fortress that dominates the skyline of Edinburgh from its position on Castle Rock.", "emoji": "🏰" },
+      { "name": "Loch Ness", "desc": "A large, deep freshwater loch in the Scottish Highlands, famous for the legendary Loch Ness Monster.", "emoji": "🦕" },
+      { "name": "Ben Nevis", "desc": "The highest mountain in the UK at 1,345 metres, located near Fort William in the Highlands.", "emoji": "⛰️" },
+      { "name": "Royal Mile", "desc": "The main street of Edinburgh's Old Town, running from Edinburgh Castle to Holyrood Palace.", "emoji": "🛣️" },
+      { "name": "Glencoe", "desc": "A stunning glaciated valley in the Scottish Highlands, site of the 1692 Massacre of Glencoe.", "emoji": "🏔️" }
+    ],
+    "cities": ["Edinburgh", "Glasgow", "Aberdeen", "Dundee", "Inverness", "Stirling"]
+  },
+  "wales": {
+    "id": "wales",
+    "name": "Wales",
+    "nameRu": "Уэльс",
+    "capital": "Cardiff",
+    "capitalRu": "Кардифф",
+    "area": "20,779 km²",
+    "population": "3.2 million",
+    "language": "English, Welsh (Cymraeg)",
+    "currency": "Pound Sterling (£)",
+    "patron": "St. David (March 1)",
+    "flower": "Daffodil",
+    "animal": "Dragon (Red Dragon)",
+    "flagColors": "Red dragon on green and white background",
+    "color": "#00712D",
+    "emoji": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    "description": "Wales is a country of stunning natural landscapes, a living Celtic language, and powerful choral music tradition. The Welsh language (Cymraeg) is spoken by around 29% of the population and all road signs are bilingual. Wales is famous for its castles — it has more castles per square mile than any other country.",
+    "facts": [
+      "Wales has more castles per square mile than any other country in the world",
+      "The Welsh language (Cymraeg) is one of Europe's oldest living languages",
+      "The world's first passenger railway ran in South Wales in 1807",
+      "Rugby union is considered the national sport of Wales",
+      "Wales has 3 national parks: Snowdonia, Brecon Beacons, and Pembrokeshire Coast"
+    ],
+    "landmarks": [
+      { "name": "Cardiff Castle", "desc": "A medieval castle and Victorian Gothic mansion in the heart of the Welsh capital, Cardiff.", "emoji": "🏰" },
+      { "name": "Snowdonia (Yr Wyddfa)", "desc": "A national park containing Snowdon (1,085m), the highest mountain in Wales and England.", "emoji": "⛰️" },
+      { "name": "Caernarfon Castle", "desc": "A magnificent 13th-century castle built by Edward I to control Wales, now a UNESCO World Heritage Site.", "emoji": "🏯" },
+      { "name": "Brecon Beacons", "desc": "A range of mountains and moorland in South Wales, famous for hiking and dark skies.", "emoji": "🌄" },
+      { "name": "Pembrokeshire Coast", "desc": "The only coastal national park in the UK, with dramatic cliffs, sandy beaches, and wildlife.", "emoji": "🌊" }
+    ],
+    "cities": ["Cardiff", "Swansea", "Newport", "Bangor", "Wrexham"]
+  },
+  "northern-ireland": {
+    "id": "northern-ireland",
+    "name": "Northern Ireland",
+    "nameRu": "Северная Ирландия",
+    "capital": "Belfast",
+    "capitalRu": "Белфаст",
+    "area": "13,843 km²",
+    "population": "1.9 million",
+    "language": "English, Irish",
+    "currency": "Pound Sterling (£)",
+    "patron": "St. Patrick (March 17)",
+    "flower": "Shamrock",
+    "animal": "Red deer",
+    "flagColors": "Part of the Union Jack; Ulster Banner features Red Hand of Ulster",
+    "color": "#FF6B35",
+    "emoji": "🇬🇧",
+    "description": "Northern Ireland is the smallest of the UK's four nations, situated in the north-east of the island of Ireland. It shares a land border with the Republic of Ireland to the south and west. Northern Ireland is known for its stunning natural scenery, including the famous Giant's Causeway, and its vibrant cities of Belfast and Londonderry/Derry.",
+    "facts": [
+      "The Titanic was built in Belfast's Harland & Wolff shipyard in 1911",
+      "Giant's Causeway consists of about 40,000 interlocking basalt columns",
+      "Northern Ireland shares a land border with the Republic of Ireland",
+      "The city of Derry/Londonderry has a fully intact 17th-century city wall",
+      "CS Lewis, author of 'The Chronicles of Narnia', was born in Belfast"
+    ],
+    "landmarks": [
+      { "name": "Giant's Causeway", "desc": "An area of about 40,000 interlocking basalt columns on the coast of County Antrim. A UNESCO World Heritage Site.", "emoji": "🪨" },
+      { "name": "Titanic Belfast", "desc": "A world-class visitor attraction built on the site where the RMS Titanic was constructed.", "emoji": "🚢" },
+      { "name": "Carrick-a-Rede Rope Bridge", "desc": "A famous rope bridge near Ballintoy, connecting the mainland to the tiny Carrickarede Island.", "emoji": "🌉" },
+      { "name": "Dark Hedges", "desc": "A stunning avenue of beech trees in County Antrim, famously used in Game of Thrones.", "emoji": "🌳" },
+      { "name": "Belfast City Hall", "desc": "A magnificent Baroque Revival building completed in 1906, the civic building of Belfast.", "emoji": "🏛️" }
+    ],
+    "cities": ["Belfast", "Derry/Londonderry", "Armagh", "Newry", "Lisburn"]
+  }
+}

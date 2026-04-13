@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scotland — About the UK</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .country-hero { background: linear-gradient(135deg, #003F87 0%, #001A5C 100%); }
+    .accent { color: #003F87; }
+    .section-border { border-left: 4px solid #003F87; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="../index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link" href="map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link active" href="countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link" href="quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link" href="flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link" href="wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link" href="lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero country-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a><i class="fa fa-chevron-right"></i>
+        <a href="countries.html">Страны</a><i class="fa fa-chevron-right"></i>
+        <span>Scotland</span>
+      </div>
+      <div style="font-size:4rem;margin-bottom:16px">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+      <h1>Scotland</h1>
+      <p>Land of Highland glens, ancient castles, and Celtic heritage</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:32px;padding:48px 0;align-items:start">
+      <div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px">
+          <div class="fact-box"><div class="fact-label">Capital</div><div class="fact-value">Edinburgh</div></div>
+          <div class="fact-box"><div class="fact-label">Area</div><div class="fact-value">77,933 km²</div></div>
+          <div class="fact-box"><div class="fact-label">Population</div><div class="fact-value">5.5 million</div></div>
+          <div class="fact-box"><div class="fact-label">Language</div><div class="fact-value">English, Gaelic</div></div>
+          <div class="fact-box"><div class="fact-label">Patron Saint</div><div class="fact-value">St. Andrew (Nov 30)</div></div>
+          <div class="fact-box"><div class="fact-label">National Flower</div><div class="fact-value">💜 Thistle</div></div>
+        </div>
+
+        <div class="section-border" style="padding-left:20px;margin-bottom:36px">
+          <h2 style="margin-bottom:16px"><span class="accent">Geography</span></h2>
+          <p>Scotland occupies the northern third of the island of Great Britain. It has three main regions: the <strong>Highlands</strong> (wild mountains and lochs in the north), the <strong>Central Belt</strong> (where most people live, including Edinburgh and Glasgow), and the <strong>Southern Uplands</strong> (rolling moorland).</p>
+          <p>Scotland has over 790 islands, including the <strong>Hebrides</strong> on the west coast and <strong>Shetland</strong> and <strong>Orkney</strong> in the far north. <strong>Ben Nevis</strong> (1,345m) is the highest mountain in the entire UK. <strong>Loch Lomond</strong> is the largest loch by surface area.</p>
+        </div>
+
+        <div class="section-border" style="padding-left:20px;margin-bottom:36px">
+          <h2 style="margin-bottom:16px"><span class="accent">History</span></h2>
+          <div style="display:grid;gap:12px">
+            <div style="display:flex;gap:16px"><div style="min-width:60px;font-family:var(--font-h);font-weight:900;color:var(--text-muted);font-size:0.85rem">1314</div><div><strong>Battle of Bannockburn</strong> — Robert the Bruce defeats the English army, securing Scottish independence.</div></div>
+            <div style="display:flex;gap:16px"><div style="min-width:60px;font-family:var(--font-h);font-weight:900;color:var(--text-muted);font-size:0.85rem">1707</div><div><strong>Act of Union</strong> — Scotland and England unite to form the Kingdom of Great Britain.</div></div>
+            <div style="display:flex;gap:16px"><div style="min-width:60px;font-family:var(--font-h);font-weight:900;color:var(--text-muted);font-size:0.85rem">1745</div><div><strong>Jacobite Rising</strong> — Bonnie Prince Charlie's failed attempt to reclaim the British throne.</div></div>
+            <div style="display:flex;gap:16px"><div style="min-width:60px;font-family:var(--font-h);font-weight:900;color:var(--text-muted);font-size:0.85rem">1999</div><div><strong>Devolution</strong> — Scottish Parliament re-established in Edinburgh after nearly 300 years.</div></div>
+          </div>
+        </div>
+
+        <div class="section-border" style="padding-left:20px;margin-bottom:36px">
+          <h2 style="margin-bottom:16px"><span class="accent">Culture &amp; Traditions</span></h2>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+              <div style="font-size:1.5rem;margin-bottom:6px">🎆</div>
+              <strong>Hogmanay</strong>
+              <p style="font-size:0.875rem;color:var(--text-muted);margin:6px 0 0">Scottish New Year (Dec 31). More important than Christmas. First-footing and "Auld Lang Syne".</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+              <div style="font-size:1.5rem;margin-bottom:6px">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+              <strong>Kilts &amp; Tartan</strong>
+              <p style="font-size:0.875rem;color:var(--text-muted);margin:6px 0 0">Each Scottish clan has its own tartan (plaid pattern). Kilts are worn at formal occasions and Highland Games.</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+              <div style="font-size:1.5rem;margin-bottom:6px">🍽️</div>
+              <strong>Haggis</strong>
+              <p style="font-size:0.875rem;color:var(--text-muted);margin:6px 0 0">Scotland's national dish: sheep offal with oatmeal, served with "neeps" (turnip) and "tatties" (potato).</p>
+            </div>
+            <div style="background:var(--white);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)">
+              <div style="font-size:1.5rem;margin-bottom:6px">🥃</div>
+              <strong>Scotch Whisky</strong>
+              <p style="font-size:0.875rem;color:var(--text-muted);margin:6px 0 0">Scotland produces over 40 million casks of whisky, exported to 175 countries. "Single malt" whisky is a Scottish invention.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-border" style="padding-left:20px;margin-bottom:36px">
+          <h2 style="margin-bottom:16px"><span class="accent">Famous Scots</span></h2>
+          <div style="display:grid;gap:10px">
+            <div style="display:flex;gap:12px;align-items:flex-start;background:var(--white);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)">
+              <div style="font-size:1.8rem">💉</div><div><strong>Alexander Fleming</strong> (1881–1955) — Bacteriologist from Ayrshire who discovered penicillin in 1928, saving hundreds of millions of lives.</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;background:var(--white);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)">
+              <div style="font-size:1.8rem">✍️</div><div><strong>Robert Burns</strong> (1759–1796) — Scotland's national poet. Wrote "Auld Lang Syne" and "A Red, Red Rose". Burns Night is celebrated on January 25th.</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start;background:var(--white);padding:14px;border-radius:var(--radius);box-shadow:var(--shadow)">
+              <div style="font-size:1.8rem">🔬</div><div><strong>James Watt</strong> (1736–1819) — Engineer from Greenock who improved the steam engine, powering the Industrial Revolution.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#E8EEFF;border-radius:var(--radius-lg);padding:24px;margin-bottom:36px">
+          <h3 style="margin-bottom:16px;color:var(--blue)">💡 Interesting Facts about Scotland</h3>
+          <ul style="list-style:none;display:grid;gap:10px">
+            <li style="display:flex;gap:10px"><span style="color:var(--blue);font-weight:700">→</span> The unicorn is Scotland's national animal!</li>
+            <li style="display:flex;gap:10px"><span style="color:var(--blue);font-weight:700">→</span> Scotland invented the telephone (Alexander Graham Bell), the TV (John Logie Baird), and penicillin.</li>
+            <li style="display:flex;gap:10px"><span style="color:var(--blue);font-weight:700">→</span> Golf was invented in Scotland in the 15th century.</li>
+            <li style="display:flex;gap:10px"><span style="color:var(--blue);font-weight:700">→</span> Edinburgh holds the world's largest arts festival every August — the Edinburgh Festival Fringe.</li>
+            <li style="display:flex;gap:10px"><span style="color:var(--blue);font-weight:700">→</span> The Loch Ness Monster ("Nessie") was first reported in 565 AD.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div style="position:sticky;top:calc(var(--nav-h)+20px)">
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);margin-bottom:20px">
+          <h4 style="margin-bottom:16px;color:var(--text-muted);font-size:0.85rem;text-transform:uppercase">Famous Landmarks</h4>
+          <div style="display:grid;gap:12px">
+            <div>🏰 <strong>Edinburgh Castle</strong><br><span style="font-size:0.8rem;color:var(--text-muted)">Fortress on Castle Rock</span></div>
+            <div>🦕 <strong>Loch Ness</strong><br><span style="font-size:0.8rem;color:var(--text-muted)">Home of the legendary Nessie</span></div>
+            <div>⛰️ <strong>Ben Nevis</strong><br><span style="font-size:0.8rem;color:var(--text-muted)">Highest peak in the UK</span></div>
+            <div>🛣️ <strong>Royal Mile</strong><br><span style="font-size:0.8rem;color:var(--text-muted)">Edinburgh's historic main street</span></div>
+          </div>
+        </div>
+        <div style="background:var(--white);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);margin-bottom:20px">
+          <h4 style="margin-bottom:16px;color:var(--text-muted);font-size:0.85rem;text-transform:uppercase">Cities</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span class="badge badge-blue">🏙 Edinburgh</span><span class="badge badge-blue">Glasgow</span>
+            <span class="badge badge-blue">Aberdeen</span><span class="badge badge-blue">Dundee</span>
+            <span class="badge badge-blue">Inverness</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="quiz.html" class="btn btn-primary"><i class="fa fa-question-circle"></i> Scotland Quiz</a>
+          <a href="countries.html" class="btn btn-outline"><i class="fa fa-arrow-left"></i> All Countries</a>
+          <a href="map.html" class="btn btn-ghost"><i class="fa fa-map"></i> See on Map</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+  <script src="../js/progress.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

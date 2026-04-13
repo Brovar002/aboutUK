@@ -1,0 +1,170 @@
+/* ========================================
+   Flashcards Page Styles
+   ======================================== */
+
+.flashcards-layout { max-width: 860px; margin: 0 auto; padding: 40px 0; }
+
+/* ── Deck Selector ── */
+.deck-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 36px;
+}
+.deck-btn {
+  background: var(--white); border-radius: var(--radius);
+  border: 2px solid var(--border); padding: 16px 12px;
+  cursor: pointer; text-align: center; transition: all 0.2s;
+  font-family: var(--font-h);
+}
+.deck-btn .d-icon  { font-size: 1.8rem; margin-bottom: 6px; }
+.deck-btn .d-name  { font-weight: 700; font-size: 0.875rem; display: block; margin-bottom: 4px; }
+.deck-btn .d-count { font-size: 0.75rem; color: var(--text-muted); }
+.deck-btn .d-prog  { margin-top: 8px; }
+.deck-btn:hover    { border-color: var(--blue); box-shadow: var(--shadow); transform: translateY(-2px); }
+.deck-btn.active   { border-color: var(--blue); background: var(--blue-light); }
+
+/* ── Flashcard Area ── */
+.fc-area { text-align: center; }
+
+.fc-nav-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 24px; gap: 12px; flex-wrap: wrap;
+}
+.fc-counter {
+  font-family: var(--font-h); font-weight: 700; color: var(--text-muted);
+}
+.fc-progress-text {
+  font-size: 0.875rem; color: var(--green); font-family: var(--font-h); font-weight: 600;
+}
+
+/* ── The Card ── */
+.card-scene {
+  perspective: 1000px; width: 100%; max-width: 560px;
+  height: 300px; margin: 0 auto 24px; cursor: pointer;
+}
+.card-3d {
+  width: 100%; height: 100%;
+  position: relative; transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-3d.flipped { transform: rotateY(180deg); }
+
+.card-face {
+  position: absolute; inset: 0;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-xl);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 32px; box-shadow: var(--shadow-lg);
+}
+.card-front {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: #fff;
+}
+.card-back {
+  background: linear-gradient(135deg, #fff 0%, var(--bg) 100%);
+  color: var(--text);
+  transform: rotateY(180deg);
+  border: 2px solid var(--border);
+}
+
+.card-front .word {
+  font-family: var(--font-h); font-weight: 900;
+  font-size: clamp(1.5rem, 5vw, 2.4rem); color: #fff;
+  margin-bottom: 12px; text-align: center;
+}
+.card-front .hint {
+  color: rgba(255,255,255,0.7); font-size: 0.875rem; text-align: center;
+}
+.card-front .flip-hint {
+  position: absolute; bottom: 16px; right: 16px;
+  font-size: 0.75rem; color: rgba(255,255,255,0.5);
+  display: flex; align-items: center; gap: 4px;
+}
+
+.card-back .translation {
+  font-family: var(--font-h); font-weight: 900;
+  font-size: clamp(1.2rem, 4vw, 1.8rem); color: var(--blue);
+  margin-bottom: 12px; text-align: center;
+}
+.card-back .example {
+  font-size: 0.875rem; color: var(--text-muted); text-align: center;
+  font-style: italic; line-height: 1.5; margin-bottom: 8px;
+}
+.card-back .tip-box {
+  background: var(--blue-light); border-radius: 8px;
+  padding: 8px 14px; font-size: 0.8rem; color: var(--blue); text-align: center;
+}
+.card-back .fact-box-fc {
+  background: #FEF3C7; border-radius: 8px;
+  padding: 10px 14px; font-size: 0.825rem; color: #92400E;
+  text-align: left; line-height: 1.5; max-width: 100%;
+}
+
+/* ── Action Buttons ── */
+.fc-actions {
+  display: flex; gap: 12px; justify-content: center; margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.fc-btn-know {
+  background: var(--green); color: #fff; padding: 12px 28px;
+  border-radius: 10px; font-family: var(--font-h); font-weight: 700; font-size: 1rem;
+  border: none; cursor: pointer; display: flex; align-items: center; gap: 8px;
+  transition: all 0.15s; box-shadow: 0 4px 12px rgba(5,150,105,0.3);
+}
+.fc-btn-know:hover { background: #047857; transform: translateY(-2px); }
+.fc-btn-unknown {
+  background: var(--bg); color: var(--text-muted); padding: 12px 28px;
+  border-radius: 10px; font-family: var(--font-h); font-weight: 700; font-size: 1rem;
+  border: 2px solid var(--border); cursor: pointer; display: flex; align-items: center; gap: 8px;
+  transition: all 0.15s;
+}
+.fc-btn-unknown:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+
+.fc-nav-buttons {
+  display: flex; gap: 12px; justify-content: center; align-items: center;
+}
+.fc-btn-prev, .fc-btn-next {
+  background: var(--white); border: 2px solid var(--border);
+  border-radius: 10px; padding: 10px 20px;
+  font-family: var(--font-h); font-weight: 700; cursor: pointer;
+  display: flex; align-items: center; gap: 8px; transition: all 0.15s;
+}
+.fc-btn-prev:hover, .fc-btn-next:hover {
+  border-color: var(--blue); color: var(--blue);
+}
+.fc-btn-prev:disabled, .fc-btn-next:disabled {
+  opacity: 0.4; cursor: not-allowed;
+}
+.fc-btn-shuffle {
+  background: var(--bg); border: 2px solid var(--border);
+  border-radius: 10px; padding: 10px 16px;
+  font-family: var(--font-h); font-weight: 700; cursor: pointer;
+  font-size: 0.875rem; transition: all 0.15s;
+}
+.fc-btn-shuffle:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ── Learned Cards ── */
+.learned-strip {
+  display: flex; gap: 4px; flex-wrap: wrap; justify-content: center;
+  margin-top: 16px;
+}
+.learned-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border); transition: background 0.2s;
+}
+.learned-dot.known { background: var(--green); }
+.learned-dot.current { background: var(--blue); transform: scale(1.4); }
+
+/* ── Completion banner ── */
+.fc-complete {
+  text-align: center; padding: 48px 24px;
+  background: var(--white); border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg); display: none;
+}
+.fc-complete .trophy { font-size: 4rem; margin-bottom: 16px; }
+.fc-complete h2 { margin-bottom: 8px; }
+.fc-complete p  { color: var(--text-muted); margin-bottom: 24px; }
+
+@media (max-width: 640px) {
+  .deck-grid { grid-template-columns: repeat(2,1fr); }
+  .card-scene { height: 240px; }
+  .card-face { padding: 20px; }
+}

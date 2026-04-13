@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Флэшкарды — About the UK</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/flashcards.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="container">
+      <a class="nav-logo" href="../index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link" href="../index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link" href="map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link" href="countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link" href="quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link active" href="flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link" href="wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link" href="lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="../index.html">Главная</a>
+        <i class="fa fa-chevron-right"></i>
+        <span>Флэшкарды</span>
+      </div>
+      <h1><i class="fa fa-layer-group"></i> Flashcards</h1>
+      <p>Изучай британскую лексику, достопримечательности и традиции &nbsp;•&nbsp; 60+ карточек в 4 темах</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="flashcards-layout">
+
+      <!-- Deck Selector -->
+      <div id="deckGrid" class="deck-grid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Current deck name -->
+      <div class="flex-between mb-16">
+        <h3 id="deckName">British Vocabulary</h3>
+        <div style="font-size:0.875rem;color:var(--text-muted)">
+          <i class="fa fa-info-circle"></i> Нажми на карточку, чтобы перевернуть
+        </div>
+      </div>
+
+      <!-- Flashcard Area -->
+      <div id="fcArea">
+
+        <div class="fc-nav-row">
+          <div class="fc-counter" id="fcCounter">1 / 20</div>
+          <div class="fc-progress-text" id="fcProgressText">✅ Изучено: 0 / 20</div>
+        </div>
+
+        <!-- 3D Card -->
+        <div class="card-scene" id="cardScene" role="button" tabindex="0" aria-label="Flashcard, click to flip">
+          <div class="card-3d" id="card3d">
+            <div class="card-face card-front" id="cardFront">
+              <!-- Front populated by JS -->
+            </div>
+            <div class="card-face card-back" id="cardBack">
+              <!-- Back populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Know / Don't Know -->
+        <div class="fc-actions">
+          <button class="fc-btn-unknown" onclick="FC.markUnknown()">
+            <i class="fa fa-rotate-left"></i> Ещё учу
+          </button>
+          <button class="fc-btn-know" onclick="FC.markKnow()">
+            <i class="fa fa-check"></i> Знаю!
+          </button>
+        </div>
+
+        <!-- Navigation -->
+        <div class="fc-nav-buttons">
+          <button class="fc-btn-prev" id="fcPrevBtn" onclick="FC.prev()" disabled>
+            <i class="fa fa-arrow-left"></i> Назад
+          </button>
+          <button class="fc-btn-shuffle" onclick="FC.shuffle()">
+            <i class="fa fa-shuffle"></i> Перемешать
+          </button>
+          <button class="fc-btn-next" id="fcNextBtn" onclick="FC.next()">
+            Вперёд <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Progress dots -->
+        <div class="learned-strip mt-16" id="learnedStrip"></div>
+
+      </div><!-- /#fcArea -->
+
+      <!-- Completion Banner -->
+      <div class="fc-complete" id="fcComplete">
+        <div class="trophy">🏆</div>
+        <h2>Deck Complete!</h2>
+        <p>You've reviewed all <strong id="fcCompleteCount">0</strong> cards in this deck!</p>
+        <p style="color:var(--text-muted);font-size:0.875rem">Зелёные карточки — ты их знаешь. Нажми «Повторить» чтобы пройти снова.</p>
+        <div style="display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="FC.restart()">
+            <i class="fa fa-rotate-right"></i> Повторить колоду
+          </button>
+          <a href="quiz.html" class="btn btn-outline">
+            <i class="fa fa-question-circle"></i> Пройти тест
+          </a>
+        </div>
+      </div>
+
+      <!-- Instructions box -->
+      <div style="background:var(--bg-alt);border-radius:var(--radius);padding:20px 24px;margin-top:32px;display:flex;gap:20px;flex-wrap:wrap">
+        <div style="flex:1;min-width:200px">
+          <div style="font-family:var(--font-h);font-weight:700;margin-bottom:8px">Как пользоваться:</div>
+          <ul style="list-style:disc;padding-left:20px;font-size:0.875rem;color:var(--text-muted);line-height:2">
+            <li>Нажми на карточку, чтобы перевернуть и увидеть ответ</li>
+            <li><strong style="color:var(--green)">Знаю</strong> — карточка отмечается зелёной точкой</li>
+            <li><strong style="color:var(--red)">Ещё учу</strong> — карточка возвращается</li>
+            <li>Изучи все карточки, чтобы получить трофей 🏆</li>
+          </ul>
+        </div>
+        <div style="flex:1;min-width:200px">
+          <div style="font-family:var(--font-h);font-weight:700;margin-bottom:8px">Клавиатура:</div>
+          <ul style="list-style:disc;padding-left:20px;font-size:0.875rem;color:var(--text-muted);line-height:2">
+            <li><kbd>Space</kbd> — перевернуть карточку</li>
+            <li><kbd>→</kbd> — следующая карточка</li>
+            <li><kbd>←</kbd> — предыдущая карточка</li>
+            <li><kbd>Enter</kbd> — отметить «Знаю»</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+
+  <script src="../js/progress.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/flashcards.js"></script>
+  <script>
+    // Keyboard shortcuts
+    document.addEventListener('keydown', e => {
+      if (e.target.tagName === 'INPUT') return;
+      if (e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); FC.flip(); }
+      if (e.key === 'ArrowRight') FC.next();
+      if (e.key === 'ArrowLeft')  FC.prev();
+      if (e.key === 'Enter') FC.markKnow();
+    });
+  </script>
+</body>
+</html>

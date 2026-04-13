@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the UK — Образовательный портал</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 50%, #1a2f8a 100%);
+      padding: 80px 0 72px;
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0; opacity: 0.07;
+      background:
+        linear-gradient(rgba(255,255,255,0.8) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255,255,255,0.8) 2px, transparent 2px);
+      background-size: 60px 60px;
+    }
+    /* Union Jack diagonal stripes */
+    .hero::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent, transparent 60px,
+        rgba(207,20,43,0.06) 60px, rgba(207,20,43,0.06) 64px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent, transparent 60px,
+        rgba(207,20,43,0.06) 60px, rgba(207,20,43,0.06) 64px
+      );
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero-flag {
+      font-size: 5rem; margin-bottom: 20px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+      display: inline-block; animation: fadeInUp 0.6s ease both;
+    }
+    .hero h1 {
+      color: #fff; font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 12px; animation: fadeInUp 0.6s 0.1s ease both;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .hero-subtitle {
+      color: rgba(255,255,255,0.8); font-size: 1.15rem; margin-bottom: 8px;
+      animation: fadeInUp 0.6s 0.2s ease both;
+    }
+    .hero-ru {
+      color: rgba(255,255,255,0.6); font-size: 0.95rem;
+      animation: fadeInUp 0.6s 0.3s ease both;
+    }
+    .hero-badges {
+      display: flex; justify-content: center; gap: 12px;
+      flex-wrap: wrap; margin-top: 28px;
+      animation: fadeInUp 0.6s 0.35s ease both;
+    }
+    .hero-badge {
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 8px 18px; border-radius: 20px; color: #fff;
+      font-family: var(--font-h); font-weight: 600; font-size: 0.875rem;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* ── Progress Panel ── */
+    .progress-panel {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 28px; box-shadow: var(--shadow-lg);
+      border: 2px solid var(--blue-light);
+      margin-top: -40px; position: relative; z-index: 10;
+    }
+    .progress-panel h3 { margin-bottom: 20px; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+      margin-bottom: 20px;
+    }
+    .stat-item { text-align: center; }
+    .stat-value {
+      font-family: var(--font-h); font-weight: 900; font-size: 1.8rem;
+      color: var(--blue); line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+    @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
+
+    /* ── Feature Cards ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    @media (max-width: 900px)  { .features-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 520px)  { .features-grid { grid-template-columns: 1fr; } }
+
+    .feature-card { border-radius: var(--radius-lg); padding: 28px 22px; }
+    .feature-card .icon { margin-bottom: 8px; }
+    .feature-card .badge-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+
+    /* Icon backgrounds */
+    .ic-blue   { background: var(--blue-light); }
+    .ic-red    { background: var(--red-light); }
+    .ic-green  { background: #D1FAE5; }
+    .ic-yellow { background: #FEF3C7; }
+    .ic-purple { background: #EDE9FE; }
+    .ic-orange { background: #FEE2E2; }
+
+    /* ── UK Countries quick links ── */
+    .countries-strip {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+      margin-top: 48px;
+    }
+    .country-quick {
+      background: var(--white); border-radius: var(--radius);
+      padding: 20px 16px; text-align: center; box-shadow: var(--shadow);
+      border-bottom: 4px solid transparent;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      cursor: pointer; display: block;
+    }
+    .country-quick:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .country-quick .flag { font-size: 2.4rem; margin-bottom: 8px; }
+    .country-quick .cname { font-family: var(--font-h); font-weight: 800; font-size: 1rem; }
+    .country-quick .ccap  { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+    .cq-england { border-color: #CF142B; }
+    .cq-scotland { border-color: #003F87; }
+    .cq-wales { border-color: #00712D; }
+    .cq-ni { border-color: #FF6B35; }
+    @media (max-width: 640px) { .countries-strip { grid-template-columns: repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" role="navigation">
+    <div class="container">
+      <a class="nav-logo" href="index.html">
+        <svg class="flag-icon" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="40" fill="#012169"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" stroke-width="8"/>
+          <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" stroke-width="4"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#fff" stroke-width="12"/>
+          <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" stroke-width="7"/>
+        </svg>
+        <span>About the UK</span>
+      </a>
+      <ul class="nav-menu" id="navMenu">
+        <li><a class="nav-link active" href="index.html"><i class="fa fa-home"></i> Главная</a></li>
+        <li><a class="nav-link" href="pages/map.html"><i class="fa fa-map"></i> Карта</a></li>
+        <li><a class="nav-link" href="pages/countries.html"><i class="fa fa-flag"></i> Страны</a></li>
+        <li><a class="nav-link" href="pages/quiz.html"><i class="fa fa-question-circle"></i> Викторины</a></li>
+        <li><a class="nav-link" href="pages/flashcards.html"><i class="fa fa-layer-group"></i> Флэшкарды</a></li>
+        <li><a class="nav-link" href="pages/wordgames.html"><i class="fa fa-gamepad"></i> Игры</a></li>
+        <li><a class="nav-link" href="pages/lessons.html"><i class="fa fa-book-open"></i> Уроки</a></li>
+      </ul>
+      <div class="nav-points"><i class="fa fa-star"></i> <span class="nav-pts-value">0</span> очков</div>
+      <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-flag">🇬🇧</div>
+      <h1>Discover the United Kingdom</h1>
+      <p class="hero-subtitle">Your interactive guide to the UK — history, culture, geography &amp; language</p>
+      <p class="hero-ru">Образовательный портал по Великобритании для 5–11 класса</p>
+      <div class="hero-badges">
+        <div class="hero-badge"><i class="fa fa-star"></i> Тесты и викторины</div>
+        <div class="hero-badge"><i class="fa fa-map"></i> Интерактивная карта</div>
+        <div class="hero-badge"><i class="fa fa-gamepad"></i> Игры со словами</div>
+        <div class="hero-badge"><i class="fa fa-layer-group"></i> Флэшкарды</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main content -->
+  <main>
+    <div class="container">
+
+      <!-- Progress panel -->
+      <div class="progress-panel scroll-fade" id="progressPanel">
+        <div class="flex-between mb-16">
+          <h3><i class="fa fa-chart-line" style="color:var(--blue)"></i> Мой прогресс</h3>
+          <button class="btn btn-ghost btn-sm" onclick="resetProgress()"><i class="fa fa-rotate-left"></i> Сбросить</button>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value" id="statPoints">0</div>
+            <div class="stat-label">⭐ Очков</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="statQuizzes">0</div>
+            <div class="stat-label">📝 Квизов пройдено</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="statCards">0</div>
+            <div class="stat-label">🃏 Карточек изучено</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value" id="statGames">0</div>
+            <div class="stat-label">🎮 Игр сыграно</div>
+          </div>
+        </div>
+        <div class="flex-between mb-8">
+          <span style="font-family:var(--font-h);font-size:0.875rem;font-weight:700">Общий прогресс</span>
+          <span id="progressPct" style="font-family:var(--font-h);font-weight:700;color:var(--blue)">0%</span>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
+        </div>
+      </div>
+
+      <!-- Countries strip -->
+      <section class="section-sm">
+        <div class="section-title">
+          <h2>Four Nations of the UK</h2>
+          <p>Четыре страны Соединённого Королевства</p>
+          <div class="divider"></div>
+        </div>
+        <div class="countries-strip">
+          <a href="pages/england.html" class="country-quick cq-england scroll-fade fade-in-up-1">
+            <div class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+            <div class="cname">England</div>
+            <div class="ccap">Capital: London</div>
+          </a>
+          <a href="pages/scotland.html" class="country-quick cq-scotland scroll-fade fade-in-up-2">
+            <div class="flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+            <div class="cname">Scotland</div>
+            <div class="ccap">Capital: Edinburgh</div>
+          </a>
+          <a href="pages/wales.html" class="country-quick cq-wales scroll-fade fade-in-up-3">
+            <div class="flag">🏴󠁧󠁢󠁷󠁬󠁳󠁿</div>
+            <div class="cname">Wales</div>
+            <div class="ccap">Capital: Cardiff</div>
+          </a>
+          <a href="pages/northern-ireland.html" class="country-quick cq-ni scroll-fade fade-in-up-4">
+            <div class="flag">🇬🇧</div>
+            <div class="cname">N. Ireland</div>
+            <div class="ccap">Capital: Belfast</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Feature cards grid -->
+      <section class="section-sm">
+        <div class="section-title">
+          <h2>Explore &amp; Learn</h2>
+          <p>Все разделы образовательного портала</p>
+          <div class="divider"></div>
+        </div>
+        <div class="features-grid">
+
+          <a href="pages/map.html" class="feature-card scroll-fade">
+            <div class="icon ic-blue"><i class="fa fa-map" style="color:var(--blue)"></i></div>
+            <div class="title">Интерактивная карта</div>
+            <div class="desc">Кликай по регионам UK, изучай города, столицы и достопримечательности каждой страны.</div>
+            <div class="badge-row">
+              <span class="badge badge-blue">Карта</span>
+              <span class="badge badge-blue">Города</span>
+            </div>
+            <div class="arrow"><i class="fa fa-arrow-right"></i></div>
+          </a>
+
+          <a href="pages/countries.html" class="feature-card scroll-fade">
+            <div class="icon ic-red"><i class="fa fa-flag" style="color:var(--red)"></i></div>
+            <div class="title">Страны UK</div>
+            <div class="desc">Подробная информация о каждой из четырёх стран: история, культура, люди и факты.</div>
+            <div class="badge-row">
+              <span class="badge badge-red">4 страны</span>
+              <span class="badge badge-red">Факты</span>
+            </div>
+            <div class="arrow" style="color:var(--red)"><i class="fa fa-arrow-right"></i></div>
+          </a>
+
+          <a href="pages/quiz.html" class="feature-card scroll-fade">
+            <div class="icon ic-yellow"><i class="fa fa-question-circle" style="color:#D97706"></i></div>
+            <div class="title">Викторины и тесты</div>
+            <div class="desc">40+ вопросов по географии, культуре, истории и языку. Уровни 5–7, 8–9, 10–11 класс.</div>
+            <div class="badge-row">
+              <span class="badge badge-gold">40+ вопросов</span>
+              <span class="badge badge-gold">3 уровня</span>
+            </div>
+            <div class="arrow" style="color:#D97706"><i class="fa fa-arrow-right"></i></div>
+          </a>
+
+          <a href="pages/flashcards.html" class="feature-card scroll-fade">
+            <div class="icon ic-purple"><i class="fa fa-layer-group" style="color:#7C3AED"></i></div>
+            <div class="title">Флэшкарды</div>
+            <div class="desc">60+ карточек по лексике, достопримечательностям, традициям и знаменитым британцам.</div>
+            <div class="badge-row">
+              <span class="badge" style="background:#EDE9FE;color:#7C3AED">60+ карточек</span>
+              <span class="badge" style="background:#EDE9FE;color:#7C3AED">4 темы</span>
+            </div>
+            <div class="arrow" style="color:#7C3AED"><i class="fa fa-arrow-right"></i></div>
+          </a>
+
+          <a href="pages/wordgames.html" class="feature-card scroll-fade">
+            <div class="icon ic-green"><i class="fa fa-gamepad" style="color:var(--green)"></i></div>
+            <div class="title">Игры со словами</div>
+            <div class="desc">Word Search — найди спрятанные слова в сетке. Hangman — угадай слово букву за буквой.</div>
+            <div class="badge-row">
+              <span class="badge badge-green">Word Search</span>
+              <span class="badge badge-green">Hangman</span>
+            </div>
+            <div class="arrow" style="color:var(--green)"><i class="fa fa-arrow-right"></i></div>
+          </a>
+
+          <a href="pages/lessons.html" class="feature-card scroll-fade">
+            <div class="icon ic-orange"><i class="fa fa-book-open" style="color:#DC2626"></i></div>
+            <div class="title">Материалы для уроков</div>
+            <div class="desc">Планы уроков, тексты и упражнения для 5–6, 7–8, 9 и 10–11 классов. Можно распечатать.</div>
+            <div class="badge-row">
+              <span class="badge badge-red">5–11 класс</span>
+              <span class="badge badge-red">Уроки</span>
+            </div>
+            <div class="arrow" style="color:#DC2626"><i class="fa fa-arrow-right"></i></div>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Quick facts banner -->
+      <section class="section-sm">
+        <div style="background:linear-gradient(135deg,var(--blue),var(--blue-dark));border-radius:var(--radius-xl);padding:40px;color:#fff;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
+          <div>
+            <div style="font-size:2rem;margin-bottom:8px">🇬🇧</div>
+            <div style="font-family:var(--font-h);font-size:1.5rem;font-weight:900">4</div>
+            <div style="color:rgba(255,255,255,0.75);font-size:0.875rem">Nations</div>
+          </div>
+          <div>
+            <div style="font-size:2rem;margin-bottom:8px">👥</div>
+            <div style="font-family:var(--font-h);font-size:1.5rem;font-weight:900">67M</div>
+            <div style="color:rgba(255,255,255,0.75);font-size:0.875rem">Population</div>
+          </div>
+          <div>
+            <div style="font-size:2rem;margin-bottom:8px">🏙️</div>
+            <div style="font-family:var(--font-h);font-size:1.5rem;font-weight:900">London</div>
+            <div style="color:rgba(255,255,255,0.75);font-size:0.875rem">Capital City</div>
+          </div>
+          <div>
+            <div style="font-size:2rem;margin-bottom:8px">💷</div>
+            <div style="font-family:var(--font-h);font-size:1.5rem;font-weight:900">£ Pound</div>
+            <div style="color:rgba(255,255,255,0.75);font-size:0.875rem">Currency</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>🇬🇧 About the UK — Образовательный портал по английскому языку &nbsp;|&nbsp; Для 5–11 класса</p>
+    </div>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function updateStats() {
+      if (!window.Progress) return;
+      const p = Progress.get();
+      document.getElementById('statPoints').textContent  = p.totalPoints;
+      document.getElementById('statGames').textContent   = p.gamesPlayed;
+
+      // count quizzes played
+      const played = Object.values(p.quizPlayed || {}).reduce((a,b) => a+b, 0);
+      document.getElementById('statQuizzes').textContent = played;
+
+      // count learned flashcards
+      const learned = Object.values(p.flashcardsLearned || {}).reduce((a,b) => a + b.length, 0);
+      document.getElementById('statCards').textContent = learned;
+
+      const pct = Progress.getOverallProgress();
+      document.getElementById('progressPct').textContent = pct + '%';
+      document.getElementById('progressBar').style.width = pct + '%';
+
+      // nav points
+      const nav = document.querySelector('.nav-pts-value');
+      if (nav) nav.textContent = p.totalPoints;
+    }
+
+    function resetProgress() {
+      if (confirm('Сбросить весь прогресс? Это действие нельзя отменить.')) {
+        Progress.reset();
+        updateStats();
+        showToast('Прогресс сброшен');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', updateStats);
+  </script>
+</body>
+</html>

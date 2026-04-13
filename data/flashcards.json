@@ -1,0 +1,93 @@
+{
+  "decks": {
+    "vocabulary": {
+      "name": "British Vocabulary",
+      "nameRu": "Британская лексика",
+      "icon": "📖",
+      "color": "#00247D",
+      "cards": [
+        { "front": "Biscuit", "back": "Cookie (печенье)", "example": "Would you like a biscuit with your tea?", "tip": "American 'biscuit' (bread roll) = British 'scone'" },
+        { "front": "Lift", "back": "Elevator (лифт)", "example": "Take the lift to the third floor.", "tip": "British use 'lift', Americans use 'elevator'" },
+        { "front": "Flat", "back": "Apartment (квартира)", "example": "She lives in a small flat in London.", "tip": "A 'flat' can be any floor; 'apartment' is common in US English" },
+        { "front": "Boot", "back": "Car trunk (багажник)", "example": "Put the bags in the boot of the car.", "tip": "The 'bonnet' is the car hood; the 'boot' is the trunk" },
+        { "front": "Chips", "back": "French fries (картошка фри)", "example": "Fish and chips is a traditional British dish.", "tip": "Thin potato crisps = 'crisps' in UK; thick fried potatoes = 'chips'" },
+        { "front": "Crisps", "back": "Potato chips (чипсы)", "example": "She was eating a packet of crisps while watching TV.", "tip": "What Americans call 'chips' are 'crisps' in British English" },
+        { "front": "Queue", "back": "Line / to wait in line (очередь)", "example": "We had to queue for an hour to get tickets.", "tip": "Queuing patiently is considered a very British cultural trait" },
+        { "front": "Fortnight", "back": "Two weeks (две недели)", "example": "They went on holiday for a fortnight.", "tip": "From Old English 'feowertyne niht' = fourteen nights" },
+        { "front": "Rubbish", "back": "Trash / nonsense (мусор / чепуха)", "example": "Don't talk rubbish! / Put it in the rubbish bin.", "tip": "Can mean garbage OR something of poor quality" },
+        { "front": "Mobile", "back": "Cell phone (мобильный телефон)", "example": "Have you got your mobile with you?", "tip": "Full form: 'mobile phone'. Americans say 'cell phone'" },
+        { "front": "Brilliant", "back": "Excellent / great (отлично / здорово)", "example": "That film was absolutely brilliant!", "tip": "Used as an enthusiastic exclamation, not just about intelligence" },
+        { "front": "Knackered", "back": "Exhausted / broken (измотанный)", "example": "I'm completely knackered after that long walk.", "tip": "Informal slang; very commonly used in everyday British speech" },
+        { "front": "Gutted", "back": "Very disappointed (расстроенный)", "example": "I was gutted when they lost the match.", "tip": "Strong informal expression for disappointment" },
+        { "front": "Cheeky", "back": "Slightly rude but amusing (дерзкий, нахальный)", "example": "That was a bit cheeky of him!", "tip": "Often used affectionately; 'cheeky chap' is a common phrase" },
+        { "front": "Bloke", "back": "Man / guy (мужик, парень)", "example": "He's a really nice bloke.", "tip": "Informal word for a man; similar to American 'dude' or 'guy'" },
+        { "front": "Mate", "back": "Friend (друг, приятель)", "example": "Alright, mate? How are you doing?", "tip": "Used as both a noun (friend) and as a form of address" },
+        { "front": "Cheers", "back": "Thank you / Goodbye (спасибо / пока)", "example": "Cheers for the help! / Cheers, see you tomorrow.", "tip": "Also used as a toast when drinking" },
+        { "front": "Fancy", "back": "To want / like something (хотеть, нравиться)", "example": "Do you fancy a cup of tea?", "tip": "'Fancy' as a verb means to want or feel like something" },
+        { "front": "Gobsmacked", "back": "Completely astonished (ошарашенный)", "example": "I was gobsmacked when I heard the news.", "tip": "From 'gob' (mouth) + 'smacked' — as if you've been hit in the mouth with surprise" },
+        { "front": "Dodgy", "back": "Suspicious / unreliable (подозрительный, ненадёжный)", "example": "That looks like a dodgy deal to me.", "tip": "Can describe people, situations, or objects that seem untrustworthy" }
+      ]
+    },
+    "landmarks": {
+      "name": "Famous Landmarks",
+      "nameRu": "Достопримечательности",
+      "icon": "🏰",
+      "color": "#CF142B",
+      "cards": [
+        { "front": "Big Ben", "back": "The famous clock tower at the Houses of Parliament, London", "fact": "Big Ben is actually the name of the bell inside the tower, not the tower itself. The tower is called the Elizabeth Tower.", "location": "Westminster, London, England" },
+        { "front": "Tower Bridge", "back": "A Victorian Gothic bascule bridge over the River Thames, London", "fact": "Tower Bridge was built between 1886–1894 and can be raised to allow tall ships to pass through. It is often mistakenly called 'London Bridge'.", "location": "London, England" },
+        { "front": "Buckingham Palace", "back": "Official London residence and administrative headquarters of the British monarch", "fact": "Buckingham Palace has 775 rooms, including 19 state rooms, 52 royal and guest bedrooms, and 78 bathrooms.", "location": "Westminster, London, England" },
+        { "front": "Stonehenge", "back": "A prehistoric stone circle monument on Salisbury Plain, Wiltshire", "fact": "Stonehenge was built in several stages between 3000–1500 BC. The large bluestones were transported over 200 miles from Wales.", "location": "Wiltshire, England" },
+        { "front": "Edinburgh Castle", "back": "A historic fortress on Castle Rock, dominating the Edinburgh skyline", "fact": "Edinburgh Castle has been a royal residence and military stronghold since the 12th century. It houses the Scottish Crown Jewels and the Stone of Destiny.", "location": "Edinburgh, Scotland" },
+        { "front": "Loch Ness", "back": "A large, deep freshwater loch in the Scottish Highlands", "fact": "Loch Ness is 37km long and holds more fresh water than all the lakes of England and Wales combined. 'Nessie' was first reported in 565 AD.", "location": "Scottish Highlands, Scotland" },
+        { "front": "Giant's Causeway", "back": "An area of ~40,000 interlocking basalt columns on the Antrim coast", "fact": "The Giant's Causeway was formed by a volcanic eruption about 60 million years ago. Legend says it was built by giant Finn McCool to walk to Scotland.", "location": "County Antrim, Northern Ireland" },
+        { "front": "Windsor Castle", "back": "The oldest and largest inhabited castle in the world, a royal residence", "fact": "Windsor Castle has been the home of English and British kings and queens for nearly 1,000 years. It was built by William the Conqueror in the 1070s.", "location": "Windsor, Berkshire, England" },
+        { "front": "Hadrian's Wall", "back": "A Roman stone wall built in 122 AD across northern England", "fact": "Hadrian's Wall stretched 118 km (73 miles) from Wallsend in the east to Bowness-on-Solway in the west. It was built to protect Roman Britain from northern tribes.", "location": "Northern England" },
+        { "front": "The Tower of London", "back": "A historic castle on the north bank of the Thames, used as a prison and royal palace", "fact": "The Tower of London was built by William the Conqueror in 1078. Famous prisoners included Anne Boleyn and Guy Fawkes. Ravens are kept there by Royal Decree.", "location": "City of London, England" },
+        { "front": "Oxford University", "back": "The oldest university in the English-speaking world, founded c.1096", "fact": "Oxford has produced 28 UK Prime Ministers, 27 Nobel Prize winners, and many world leaders. It has 39 independent colleges.", "location": "Oxford, England" },
+        { "front": "Caernarfon Castle", "back": "A 13th-century castle in Wales, UNESCO World Heritage Site", "fact": "Caernarfon Castle was built by Edward I of England from 1283 to control Wales. The investiture of the Prince of Wales is held here.", "location": "Gwynedd, Wales" },
+        { "front": "Ben Nevis", "back": "The highest mountain in the UK at 1,345 metres", "fact": "Ben Nevis is a dormant volcano. About 150,000 people attempt to climb it each year. At the summit are the ruins of a weather observatory built in 1883.", "location": "Scottish Highlands, Scotland" },
+        { "front": "Stratford-upon-Avon", "back": "Birthplace of William Shakespeare (1564–1616)", "fact": "William Shakespeare was born and died in Stratford-upon-Avon. His birthplace, Anne Hathaway's Cottage, and Holy Trinity Church (his burial site) are major attractions.", "location": "Warwickshire, England" },
+        { "front": "The British Museum", "back": "One of the world's greatest museums of human history and culture, free admission", "fact": "The British Museum contains 8 million objects spanning 2 million years of history. It opened in 1759 and is the UK's most visited tourist attraction.", "location": "Bloomsbury, London, England" }
+      ]
+    },
+    "traditions": {
+      "name": "British Traditions",
+      "nameRu": "Британские традиции",
+      "icon": "🎭",
+      "color": "#059669",
+      "cards": [
+        { "front": "Afternoon Tea", "back": "A light meal served between 3–5pm: tea, finger sandwiches, scones, and cakes", "fact": "Afternoon tea was introduced in the 1840s by Anna, Duchess of Bedford, who felt hungry between lunch and dinner. It became a fashionable social event." },
+        { "front": "Guy Fawkes Night", "back": "Celebrated on November 5th with bonfires and fireworks", "fact": "Guy Fawkes Night commemorates the failed Gunpowder Plot of 1605, when Guy Fawkes tried to blow up Parliament. Children make effigies called 'Guys' and collect money." },
+        { "front": "Boxing Day", "back": "A public holiday on December 26th, the day after Christmas", "fact": "Boxing Day originally involved giving 'Christmas boxes' (gifts) to servants and tradespeople. Today it is known for shopping sales and watching football matches." },
+        { "front": "Hogmanay", "back": "Scotland's famous New Year celebration on December 31st", "fact": "Hogmanay is more important than Christmas in Scottish culture. Traditions include 'first footing' (being the first person to enter a home after midnight) and singing 'Auld Lang Syne'." },
+        { "front": "Wimbledon", "back": "The world's oldest and most prestigious tennis tournament, held in London every July", "fact": "The tradition of eating strawberries and cream at Wimbledon began in the 1880s. Around 28,000 kg of strawberries are consumed during the two-week tournament." },
+        { "front": "The Chelsea Flower Show", "back": "The world's most famous gardening show, held in London every May", "fact": "The RHS Chelsea Flower Show has been held since 1913 in the grounds of the Royal Hospital Chelsea. Queen Mary, the wife of George V, was famously almost knocked over by crowds at the first show." },
+        { "front": "Bonfire Night", "back": "Another name for Guy Fawkes Night — see 5th November", "fact": "The traditional rhyme is: 'Remember, remember, the fifth of November, Gunpowder, treason and plot!'" },
+        { "front": "Burns Night", "back": "Scottish celebration of poet Robert Burns on January 25th", "fact": "Burns Night involves eating haggis, neeps (turnip), and tatties (potatoes), reciting Burns' poems, and toasting with whisky. It is celebrated worldwide in Scottish communities." },
+        { "front": "The Oxford–Cambridge Boat Race", "back": "Annual rowing race on the River Thames between Oxford and Cambridge university teams", "fact": "The Boat Race has been held almost every year since 1829. Oxford has won 86 times, Cambridge 85 times (as of 2024). The race is about 6.8 km long." },
+        { "front": "Changing of the Guard", "back": "A ceremony at Buckingham Palace where one regiment of Foot Guards is replaced by another", "fact": "The Changing of the Guard ceremony happens at 11:30am on selected days and takes about 45 minutes. The guards wear their famous red tunics and bearskin hats." }
+      ]
+    },
+    "people": {
+      "name": "Famous British People",
+      "nameRu": "Знаменитые британцы",
+      "icon": "👑",
+      "color": "#7C3AED",
+      "cards": [
+        { "front": "William Shakespeare", "back": "England's greatest playwright and poet (1564–1616)", "fact": "Shakespeare wrote 37 plays and 154 sonnets. He invented over 1,700 words still used today, including 'bedroom', 'lonely', and 'generous'. Born in Stratford-upon-Avon." },
+        { "front": "Queen Elizabeth II", "back": "The longest-reigning British monarch (1952–2022)", "fact": "Queen Elizabeth II reigned for 70 years and met with 15 US Presidents and 15 UK Prime Ministers. She was the first British monarch to send an email, in 1976." },
+        { "front": "Winston Churchill", "back": "British Prime Minister during WWII, Nobel Prize winner (1940–1945)", "fact": "Churchill won the Nobel Prize in Literature in 1953. His famous speech 'We shall fight on the beaches' was delivered in 1940. He was also a talented painter." },
+        { "front": "Isaac Newton", "back": "English mathematician and physicist who discovered laws of gravity (1643–1727)", "fact": "Newton formulated the laws of motion and universal gravitation. The apple story is largely true — he observed an apple falling and developed his theory of gravity." },
+        { "front": "Charles Darwin", "back": "English naturalist who proposed the theory of evolution by natural selection (1809–1882)", "fact": "Darwin published 'On the Origin of Species' in 1859. He delayed publishing for 20 years, fearing the religious backlash. His face appears on the British £10 note." },
+        { "front": "The Beatles", "back": "The most influential rock band in history, from Liverpool (1960–1970)", "fact": "The Beatles (Lennon, McCartney, Harrison, Starr) have sold over 600 million albums worldwide. Their song 'Yesterday' is the most covered song in history, with over 3,000 versions." },
+        { "front": "J.K. Rowling", "back": "British author who created the Harry Potter series (born 1965)", "fact": "J.K. Rowling wrote the first Harry Potter book as a single mother on welfare benefits. The series has sold over 600 million copies and been translated into 84 languages." },
+        { "front": "Stephen Hawking", "back": "British theoretical physicist and cosmologist (1942–2018)", "fact": "Hawking was diagnosed with motor neurone disease at 21 and given 2 years to live. He lived 55 more years and made groundbreaking discoveries about black holes and the nature of time." },
+        { "front": "Roald Dahl", "back": "British author of beloved children's books including Charlie and the Chocolate Factory (1916–1990)", "fact": "Roald Dahl was a WWII RAF pilot before becoming an author. He wrote 19 children's books including Matilda, James and the Giant Peach, and The BFG." },
+        { "front": "Florence Nightingale", "back": "British social reformer and founder of modern nursing (1820–1910)", "fact": "Florence Nightingale transformed nursing during the Crimean War (1853–56). She established the first secular nursing school in the world at St Thomas' Hospital, London, in 1860." },
+        { "front": "Alan Turing", "back": "British mathematician and computer science pioneer (1912–1954)", "fact": "Turing cracked the German Enigma code in WWII, helping to shorten the war. He is considered the father of computer science and artificial intelligence." },
+        { "front": "David Bowie", "back": "Iconic British rock musician and cultural icon (1947–2016)", "fact": "David Bowie's innovations included creating the glam rock persona 'Ziggy Stardust'. He sold over 140 million albums. His alter egos pushed boundaries of music and identity." }
+      ]
+    }
+  }
+}
